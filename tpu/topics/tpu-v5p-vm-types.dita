@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-v5p-vm-types" xml:lang="en-US">
+  <title><keyword keyref="product-v5p"/> VM types</title>
+  <shortdesc>The VM types available for <keyword keyref="product-v5p"/> and the host resources each one provides.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-v5p" href="https://docs.cloud.google.com/tpu/docs/v5p" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <refbody>
+    <section id="vm-types">
+      <title>VM types</title>
+      <table outputclass="vm-types"><tgroup cols="4"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><colspec colname="c4"/><thead><row><entry>Machine type</entry><entry>Chips per VM</entry><entry>vCPUs</entry><entry>RAM (GB)</entry></row></thead><tbody>
+<row><entry><keyword keyref="v5p-machine-type"/></entry><entry><keyword keyref="v5p-chips-per-vm"/></entry><entry><keyword keyref="v5p-vcpus-4chip"/></entry><entry><keyword keyref="v5p-ram-4chip"/></entry></row>
+</tbody></tgroup></table>
+      
+    </section>
+  </refbody>
+</reference>

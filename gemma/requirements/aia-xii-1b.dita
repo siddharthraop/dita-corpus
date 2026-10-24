@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="aia-xii-1b" xml:lang="en-US">
+  <title>Annex XII 1(b): Acceptable use policies</title>
+  <shortdesc>The acceptable use policies that apply to the model.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao</author>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-24"/></critdates>
+    <metadata><audience type="downstream"/></metadata>
+    <data name="requirement-id" value="aia.xii-1b"/>
+    <data name="framework" value="eu-ai-act"/>
+    <data name="source" value="eu-ai-act-annex-xii" href="https://artificialintelligenceact.eu/annex/12/" format="html" scope="external"/>
+    <data name="licence" value="Plain-language paraphrase of the legal or framework text. Not legal advice."/>
+  </prolog>
+  <refbody>
+    <properties id="requirement">
+      <property><proptype>Requirement</proptype><propvalue><codeph>aia.xii-1b</codeph></propvalue></property>
+      <property><proptype>Legal source</proptype><propvalue>Regulation (EU) 2024/1689 (AI Act), Annex XII, point 1(b)</propvalue></property>
+      <property><proptype>Pack</proptype><propvalue>Downstream pack (providers who integrate the model)</propvalue></property>
+    </properties>
+    <section id="evidence-rule"><title>What counts as evidence</title>
+      <p>A topic that states this information for the model version in the pack. The relationship table links each
+        evidence topic to this requirement. A requirement with no linked topic is a gap.</p></section>
+  </refbody>
+</reference>

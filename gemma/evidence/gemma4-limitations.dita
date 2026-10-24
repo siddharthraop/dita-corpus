@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="gemma4-limitations" xml:lang="en-US">
+  <title><keyword keyref="gemma-4-name"/>: Limitations</title>
+  <shortdesc>Limitations for <keyword keyref="gemma-4-name"/>, as stated in its model card.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-07-30"/></critdates>
+    <metadata><prodinfo><prodname><keyword keyref="gemma-4-name"/></prodname><vrmlist><vrm version="4"/></vrmlist></prodinfo></metadata>
+    <data name="model-version" value="gemma-4"/>
+    <data name="evidence-subject" value="limitations"/>
+    <data name="source" value="gemma4-card" href="https://ai.google.dev/gemma/docs/core/model_card_4" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+  </prolog>
+  <conbody><p>Output depends on the quality and coverage of the training data. The models are sensitive to task complexity and prompt clarity, can miss nuance and figurative language, are not guaranteed to be factually accurate, and can lack common-sense reasoning.</p></conbody>
+</concept>

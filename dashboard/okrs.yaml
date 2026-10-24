@@ -1,0 +1,92 @@
+# Objectives and key results for the corpus, and the metric each one reads from
+# dashboard/data/metrics.json (written by tools/extract.py).
+#
+# Targets are the ones set for this proof of concept, not industry benchmarks.
+# direction: "min" means the value must be at least the target; "max" means at most.
+
+objectives:
+  - id: O1
+    title: Every value has one source
+    why: A value typed in two places drifts. Keys make a correction a one-line change.
+    key_results:
+      - id: KR1.1
+        title: Specification-table values that come from a key
+        metric: single_source.spec_cells_keyed_pct
+        target: 100
+        unit: "%"
+        direction: min
+      - id: KR1.2
+        title: Hardware numbers typed into prose (known issues excluded)
+        metric: single_source.typed_numbers_unexplained
+        target: 0
+        unit: ""
+        direction: max
+      - id: KR1.3
+        title: Keys defined but never used
+        metric: single_source.unused_keys
+        target: 0
+        unit: ""
+        direction: max
+
+  - id: O2
+    title: Publish at the speed of engineering
+    why: Docs that pass the same gates as code can ship with every merge.
+    key_results:
+      - id: KR2.1
+        title: Validation errors on the main branch
+        metric: quality.errors
+        target: 0
+        unit: ""
+        direction: max
+      - id: KR2.2
+        title: API methods in the spec that have a reference topic
+        metric: api.methods_documented_pct
+        target: 100
+        unit: "%"
+        direction: min
+      - id: KR2.3
+        title: Outputs built per push (generations, packs, API, MyST)
+        metric: builds.outputs
+        target: 9
+        unit: ""
+        direction: min
+
+  - id: O3
+    title: Evidence is ready for a regulator
+    why: An evidence pack assembled by hand costs days per request. A traced source costs a build.
+    key_results:
+      - id: KR3.1
+        title: Annex XI requirements with evidence for the current model
+        metric: evidence.current.authority_pct
+        target: 80
+        unit: "%"
+        direction: min
+      - id: KR3.2
+        title: Annex XII requirements with evidence for the current model
+        metric: evidence.current.downstream_pct
+        target: 80
+        unit: "%"
+        direction: min
+      - id: KR3.3
+        title: Conflicting statements in the evidence
+        metric: evidence.current.conflicting
+        target: 0
+        unit: ""
+        direction: max
+
+  - id: O4
+    title: Content is accessible and current
+    why: Readers who can't see an image, and facts nobody re-checked, are both support tickets later.
+    key_results:
+      - id: KR4.1
+        title: Images and media with a text alternative
+        metric: media.text_alternative_pct
+        target: 100
+        unit: "%"
+        direction: min
+      - id: KR4.2
+        title: Sources re-checked in the last 90 days
+        metric: freshness.sources_current_pct
+        target: 100
+        unit: "%"
+        direction: min

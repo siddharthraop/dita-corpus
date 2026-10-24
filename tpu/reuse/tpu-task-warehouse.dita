@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="tpu-task-warehouse">
+  <title>Cloud TPU reusable steps</title>
+  <shortdesc>Steps that several tasks reuse by content reference. Edit them here only.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-24"/></critdates>
+    <data name="licence" value="CC BY 4.0. Adapted from Google Cloud TPU documentation and modified."/>
+  </prolog>
+  <taskbody>
+    <steps>
+      <step id="step-set-project"><cmd>Set the project for the gcloud CLI:</cmd>
+        <info><codeblock outputclass="language-bash">gcloud config set project <varname>PROJECT_ID</varname></codeblock></info></step>
+    </steps>
+  </taskbody>
+</task>

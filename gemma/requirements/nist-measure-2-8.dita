@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="nist-measure-2-8" xml:lang="en-US">
+  <title>NIST AI RMF MEASURE 2.8: Transparency and accountability risks</title>
+  <shortdesc>Risks to transparency and accountability are examined and documented.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao</author>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-24"/></critdates>
+    <metadata><audience type="internal"/></metadata>
+    <data name="requirement-id" value="nist.measure.2.8"/>
+    <data name="framework" value="nist-ai-rmf"/>
+    <data name="source" value="nist-ai-rmf" href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf" format="html" scope="external"/>
+    <data name="licence" value="Plain-language paraphrase of the legal or framework text. Not legal advice."/>
+  </prolog>
+  <refbody>
+    <properties id="requirement">
+      <property><proptype>Requirement</proptype><propvalue><codeph>nist.measure.2.8</codeph></propvalue></property>
+      <property><proptype>Source</proptype><propvalue>NIST AI 100-1, AI Risk Management Framework 1.0, subcategory MEASURE 2.8</propvalue></property>
+      <property><proptype>Pack</proptype><propvalue>Internal governance pack</propvalue></property>
+    </properties>
+  </refbody>
+</reference>

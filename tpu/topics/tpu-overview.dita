@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="tpu-overview" xml:lang="en-US">
+  <title><keyword keyref="product-cloud-tpu"/> generations</title>
+  <shortdesc>Tensor Processing Units (TPUs) are accelerators for machine learning. This set documents four
+    generations, which share most concepts and tasks but differ in their values.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu7x" href="https://docs.cloud.google.com/tpu/docs/tpu7x" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <conbody>
+    <p>Each generation has an introduction, a specifications topic, a configurations topic and a VM types topic. Values
+      such as chips per pod are stored once as keys, so a corrected value changes every page that shows it.</p>
+    <ul><li><xref href="tpu-v5e-intro.dita" type="concept"/></li><li><xref href="tpu-v5p-intro.dita" type="concept"/></li><li><xref href="tpu-v6e-intro.dita" type="concept"/></li><li><xref href="tpu7x-intro.dita" type="concept"/></li></ul>
+    <p><ph conref="../reuse/tpu-warehouse.dita#tpu-warehouse/ph-pages-checked"/>.</p>
+  </conbody>
+</concept>

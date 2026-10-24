@@ -1,0 +1,8 @@
+build/
+.grammar/
+out/
+_build/
+__pycache__/
+*.pyc
+.DS_Store
+media/blender/*.blend1

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="gemma3-training-data" xml:lang="en-US">
+  <title><keyword keyref="gemma-3-name"/>: Training data</title>
+  <shortdesc>Training data for <keyword keyref="gemma-3-name"/>, as stated in its model card.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2025-04-09"/></critdates>
+    <metadata><prodinfo><prodname><keyword keyref="gemma-3-name"/></prodname><vrmlist><vrm version="3"/></vrmlist></prodinfo></metadata>
+    <data name="model-version" value="gemma-3"/>
+    <data name="evidence-subject" value="training-data"/>
+    <data name="source" value="gemma3-card" href="https://ai.google.dev/gemma/docs/core/model_card_3" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+  </prolog>
+  <refbody><section id="data"><table><tgroup cols="2"><colspec colname="c1"/><colspec colname="c2"/><thead><row><entry>Model size</entry><entry>Training tokens</entry></row></thead><tbody><row><entry>27B</entry><entry>14 trillion</entry></row><row><entry>12B</entry><entry>12 trillion</entry></row><row><entry>4B</entry><entry>4 trillion</entry></row><row><entry>1B</entry><entry>2 trillion</entry></row></tbody></tgroup></table><p>Knowledge cutoff: <keyword keyref="gemma-3-cutoff"/>.</p></section></refbody>
+</reference>

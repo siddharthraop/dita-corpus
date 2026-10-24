@@ -1,0 +1,151 @@
+# Docs as code for the corpus: every push is validated, built with DITA-OT for every audience,
+# and published with its dashboard. A pull request runs the same checks and builds, without
+# publishing, so a reviewer sees red or green before merging.
+name: corpus
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      render_media:
+        description: "Re-render the 3D transceiver media with Blender"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: corpus-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Validate source
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install tools
+        run: |
+          sudo apt-get install -y --no-install-recommends libxml2-utils
+          pip install -r requirements.txt
+      - name: Fetch the OASIS DITA 1.3 grammars
+        run: echo "XML_CATALOG_FILES=$(tools/fetch_grammar.sh)" >> "$GITHUB_ENV"
+      - name: Validate (DTD, integrity, Schematron, sources)
+        run: python tools/validate.py
+      - name: API reference matches the published spec
+        run: python tools/api2dita.py --check
+      - name: Inventory and analytics
+        run: |
+          python tools/inventory.py
+          python tools/extract.py
+      - name: Build Cloud NAT (MyST, warnings are errors)
+        run: python -m sphinx -W -b html nat out/nat
+      - uses: actions/upload-artifact@v4
+        with:
+          name: check
+          path: |
+            build/
+            out/nat/
+
+  dita:
+    name: DITA-OT ${{ matrix.name }}
+    needs: check
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: tpu-v5e, map: tpu/tpu.ditamap, filter: tpu/filters/v5e.ditaval }
+          - { name: tpu-v5p, map: tpu/tpu.ditamap, filter: tpu/filters/v5p.ditaval }
+          - { name: tpu-v6e, map: tpu/tpu.ditamap, filter: tpu/filters/v6e.ditaval }
+          - { name: tpu-tpu7x, map: tpu/tpu.ditamap, filter: tpu/filters/tpu7x.ditaval }
+          - { name: gemma-authority, map: gemma/gemma.ditamap, filter: gemma/filters/authority.ditaval }
+          - { name: gemma-downstream, map: gemma/gemma.ditamap, filter: gemma/filters/downstream.ditaval }
+          - { name: gemma-internal, map: gemma/gemma.ditamap, filter: gemma/filters/internal.ditaval }
+          - { name: api, map: api/tpu-api.ditamap, filter: "" }
+    steps:
+      - uses: actions/checkout@v4
+      # Official DITA-OT action: https://www.dita-ot.org/dev/topics/using-github-actions
+      - name: Build HTML5
+        uses: dita-ot/dita-ot-action@master
+        with:
+          build: >-
+            dita --input=${{ matrix.map }} --format=html5 --output=out/${{ matrix.name }}
+            ${{ matrix.filter && format('--filter={0}', matrix.filter) || '' }}
+            --processing-mode=strict
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dita-${{ matrix.name }}
+          path: out/${{ matrix.name }}/
+
+  media:
+    name: Render 3D media
+    if: github.event_name == 'workflow_dispatch' && inputs.render_media
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: |
+          sudo apt-get install -y --no-install-recommends ffmpeg
+          pip install bpy
+          tools/render_media.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: media
+          path: tpu/media/
+
+  site:
+    name: Assemble site
+    needs: [check, dita]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Lay out the site and score the build
+        run: |
+          set -euo pipefail
+          mkdir -p site/tpu site/gemma build
+          cp -R artifacts/check/build/. build/
+          cp -R artifacts/check/out/nat site/nat
+          for g in v5e v5p v6e tpu7x; do cp -R "artifacts/dita-tpu-$g" "site/tpu/$g"; cp -R tpu/media "site/tpu/$g/media"; done
+          for p in authority downstream internal; do cp -R "artifacts/dita-gemma-$p" "site/gemma/$p"; done
+          cp -R artifacts/dita-api site/api
+          # Count the outputs that really built (each has an index.html) for the dashboard's KR2.3.
+          python -c "import json,pathlib; d=sorted({str(p.parent.relative_to('site')) for p in pathlib.Path('site').glob('**/index.html')}); pathlib.Path('build/outputs.json').write_text(json.dumps({'count': len(d), 'list': d}))"
+          python tools/extract.py
+          cp dashboard/index.html site/index.html
+          mkdir -p site/data && cp dashboard/data/metrics.js dashboard/data/metrics.json site/data/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    name: Publish to GitHub Pages
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: site
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

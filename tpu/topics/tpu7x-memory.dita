@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="tpu7x-memory" xml:lang="en-US">
+  <title><keyword keyref="product-tpu7x"/> memory hierarchy</title>
+  <shortdesc>How high-bandwidth memory (HBM) and host memory are organized on a <keyword keyref="product-tpu7x"/> chip.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu7x" href="https://docs.cloud.google.com/tpu/docs/tpu7x" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    <data name="known-issue" value="KI-2"/>
+  </prolog>
+  <conbody>
+    <section id="hbm">
+      <title>High-bandwidth memory</title>
+      <p>Each chip has <keyword keyref="tpu7x-hbm-capacity"/> GiB of HBM, with bandwidth of approximately 7.37 TB/s. The
+        large capacity allows large batch sizes, which can improve throughput. HBM can still be a bottleneck for
+        memory-bound vector operations or inefficient data access patterns.</p>
+    </section>
+    <section id="chiplets">
+      <title>Dual-chiplet design</title>
+      <p>Each chip has two chiplets. Each chiplet is a self-contained unit with one TensorCore, two SparseCores and
+        <keyword keyref="tpu7x-chiplet-hbm"/> GiB of HBM.</p>
+    </section>
+    <section id="host-memory">
+      <title>Host memory</title>
+      <p>The host's main memory connects to the chip with much lower bandwidth than HBM. You can still use it to offload
+        activations or optimizer states and free HBM, which helps with memory pressure in large models.</p>
+    </section>
+  </conbody>
+</concept>

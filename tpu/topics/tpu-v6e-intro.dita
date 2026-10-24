@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="tpu-v6e-intro" xml:lang="en-US">
+  <title><keyword keyref="product-v6e"/></title>
+  <shortdesc><keyword keyref="product-v6e"/> serves and trains transformer, text-to-image and convolutional models. Each chip has <keyword keyref="v6e-tensorcores"/> TensorCore and <keyword keyref="v6e-sparsecores"/> SparseCores, and a pod holds <keyword keyref="v6e-chips-per-pod"/> chips in a <keyword keyref="v6e-topology"/>.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/><keywords><keyword>TPU v6e (Trillium)</keyword></keywords></metadata>
+    <data name="source" value="tpu-v6e" href="https://docs.cloud.google.com/tpu/docs/v6e" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <conbody>
+    <p>Use the specification topic to size a slice, the configurations topic to choose a slice shape, and the VM
+      types topic to see what each VM provides.</p>
+    
+  </conbody>
+</concept>

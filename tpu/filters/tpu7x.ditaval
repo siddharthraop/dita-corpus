@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE val PUBLIC "-//OASIS//DTD DITA DITAVAL//EN" "ditaval.dtd">
+<!-- Build the TPU set for tpu7x only. Content with no @platform is kept. -->
+<val>
+  <prop att="platform" val="tpu7x" action="include"/>
+  <prop att="platform" action="exclude"/>
+</val>

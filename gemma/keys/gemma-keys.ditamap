@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<!-- Model facts used in more than one topic. Sources: sources/sources.yaml (gemma4-card, gemma-overview, gemma3-card). -->
+<map id="gemma-keys">
+  <title>Gemma key definitions</title>
+  <keydef keys="gemma-4-name"><topicmeta><keywords><keyword>Gemma 4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-3-name"><topicmeta><keywords><keyword>Gemma 3</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-4-cutoff"><topicmeta><keywords><keyword>January 2025</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-3-cutoff"><topicmeta><keywords><keyword>August 2024</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-4-context-small"><topicmeta><keywords><keyword>128K</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-4-context-medium"><topicmeta><keywords><keyword>256K</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-3-context-large"><topicmeta><keywords><keyword>128,000</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-3-context-1b"><topicmeta><keywords><keyword>32,000</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-3-hardware"><topicmeta><keywords><keyword>TPUv4p, TPUv5p and TPUv5e</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-4-licence"><topicmeta><keywords><keyword>Apache 2.0</keyword></keywords></topicmeta></keydef>
+  <keydef keys="gemma-3-licence"><topicmeta><keywords><keyword>Gemma Terms of Use</keyword></keywords></topicmeta></keydef>
+</map>
