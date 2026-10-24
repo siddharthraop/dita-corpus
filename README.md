@@ -23,7 +23,7 @@ engaged, sponsored or endorsed this work. See [ATTRIBUTION.md](ATTRIBUTION.md).
 
 | Set | Folder | Format | Contents |
 |---|---|---|---|
-| A · Cloud TPU | [`tpu/`](tpu) | DITA 1.3 | 4 generations (v5e, v5p, v6e, TPU7x) × intro, specifications, configurations, VM types; shared overview, comparison, memory, software versions, networking, a create-VM task and an OSFP media topic. 75 keys, 2 conref warehouses, `@platform` + one DITAVAL per generation, subject scheme, classification map, relationship table |
+| A · Cloud TPU | [`tpu/`](tpu) | DITA 1.3 | 4 generations (v5e, v5p, v6e, TPU7x) × intro, specifications, configurations, VM types; a v5e slice-planning task with a `<choicetable>` and a `<hazardstatement>` (specialized on purpose); shared overview, comparison, memory, software versions, networking, a create-VM task and an OSFP media topic. 75 keys, 2 conref warehouses, `@platform` + one DITAVAL per generation, subject scheme, classification map, relationship table |
 | B · Cloud NAT | [`nat/`](nat) | MyST Markdown | Overview, Tune NAT configuration, release notes. Repeated values are substitutions in `nat/conf.py`. Two tags hold the TIME_WAIT default before and after Google's 31 March 2026 change |
 | C · Gemma evidence | [`gemma/`](gemma) | DITA 1.3 | 26 requirement topics (EU AI Act Annex XI Section 1, Annex XII, four NIST AI RMF subcategories), 22 evidence topics from the Gemma 4 and Gemma 3 model cards, a requirement-to-evidence relationship table with a coverage value on each link, and one DITAVAL per evidence pack |
 | D · TPU API | [`api/`](api) | DITA 1.3, generated | 24 method and 54 type reference topics generated from the Cloud TPU API v2 discovery document by `tools/api2dita.py`. Do not edit by hand |
@@ -44,6 +44,7 @@ something true to catch. Don't fix them in the source.
 | KI-1 | v6e HBM capacity is 32 **GB** on the v6e page and 32 in a **GiB** column on the TPU7x comparison table |
 | KI-2 | TPU7x HBM bandwidth is 7380 GBps in the table and "approximately 7.37 TB/s" in the prose. `tools/validate.py` flags it (SPEC-2) |
 | KI-3 | v5e HBM bandwidth is given in GiBps; every other generation uses GBps |
+| KI-4 | The relationship table references platform-scoped topics with no condition, so DITA-OT still publishes them in other generations' builds (outside the TOC). MANIFEST reports it |
 
 The TPU7x "192 GiB vs 192 GB" example used in earlier design documents was checked on
 24 October 2026 and no longer appears on the live page, so it is retired.

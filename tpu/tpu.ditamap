@@ -12,7 +12,7 @@
   <topicref href="topics/tpu-overview.dita">
     <topicref href="topics/tpu-generations-compared.dita"/>
   </topicref>
-    <topicref href="topics/tpu-v5e-intro.dita" platform="v5e" collection-type="family"><topicref href="topics/tpu-v5e-specifications.dita"/><topicref href="topics/tpu-v5e-configurations.dita"/><topicref href="topics/tpu-v5e-vm-types.dita"/></topicref>
+    <topicref href="topics/tpu-v5e-intro.dita" platform="v5e" collection-type="family"><topicref href="topics/tpu-v5e-specifications.dita"/><topicref href="topics/tpu-v5e-configurations.dita"/><topicref href="topics/tpu-v5e-vm-types.dita"/><topicref href="topics/tpu-v5e-slice-planning.dita"/></topicref>
     <topicref href="topics/tpu-v5p-intro.dita" platform="v5p" collection-type="family"><topicref href="topics/tpu-v5p-specifications.dita"/><topicref href="topics/tpu-v5p-configurations.dita"/><topicref href="topics/tpu-v5p-vm-types.dita"/></topicref>
     <topicref href="topics/tpu-v6e-intro.dita" platform="v6e" collection-type="family"><topicref href="topics/tpu-v6e-specifications.dita"/><topicref href="topics/tpu-v6e-configurations.dita"/><topicref href="topics/tpu-v6e-vm-types.dita"/></topicref>
     <topicref href="topics/tpu7x-intro.dita" platform="tpu7x" collection-type="family"><topicref href="topics/tpu7x-specifications.dita"/><topicref href="topics/tpu7x-configurations.dita"/><topicref href="topics/tpu7x-vm-types.dita"/><topicref href="topics/tpu7x-memory.dita"/></topicref>

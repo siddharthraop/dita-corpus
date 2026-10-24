@@ -40,6 +40,13 @@ sources:
     page_updated: 2026-10-20
     checked: 2026-10-24
     licence: CC-BY-4.0
+  tpu-quota:
+    title: "Cloud TPU quotas"
+    url: https://docs.cloud.google.com/tpu/docs/quota
+    page_updated: 2026-10-13
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+    note: "Quota is counted in TPU cores, per project and per zone. Used by the hazard statement in tpu-v5e-slice-planning."
   tpu-networking:
     title: "Configure networking and access to your Cloud TPU"
     url: https://docs.cloud.google.com/tpu/docs/configure-networking-access
@@ -132,6 +139,11 @@ known_issues:
     detail: "The v5e page gives HBM bandwidth as 800 GiBps; every other generation uses GBps."
     sources: [tpu-v5e]
     where: [tpu/topics/tpu-v5e-specifications.dita]
+  - id: KI-4
+    summary: "Relationship table keeps platform-filtered topics published"
+    detail: "Each generation's branch in tpu.ditamap is scoped with @platform, but the reltable references the same topics with no condition. DITA-OT 4.4 therefore still publishes the other generations' pages in a filtered build (it only drops them from the table of contents). Found by MANIFEST's restore step, which matches DITA-OT and reports it."
+    sources: []
+    where: [tpu/tpu.ditamap]
   - id: KI-0-retired
     summary: "TPU7x HBM capacity 192 GiB vs 192 GB (retired)"
     detail: "Cited in earlier design documents. On 2026-10-24 the live page states 192 GiB in both the table and the prose, so the corpus no longer reproduces it."
