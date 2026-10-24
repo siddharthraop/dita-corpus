@@ -36,7 +36,7 @@
       <title>Video</title>
       <p>The same model as a short video, for players that support MP4:</p>
       <object data="../media/osfp-turntable.mp4" type="video/mp4" width="640" height="360" outputclass="video">
-        <desc>Twelve-second turntable video of the 3D transceiver model.</desc>
+        <desc>Nine-second video of the 3D transceiver model turning three times.</desc>
         <param name="controls" value="true"/>
         <param name="loop" value="true"/>
       </object>

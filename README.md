@@ -29,6 +29,8 @@ engaged, sponsored or endorsed this work. See [ATTRIBUTION.md](ATTRIBUTION.md).
 | D · TPU API | [`api/`](api) | DITA 1.3, generated | 24 method and 54 type reference topics generated from the Cloud TPU API v2 discovery document by `tools/api2dita.py`. Do not edit by hand |
 | E · Media | [`tpu/media/`](tpu/media), [`media/blender/`](media/blender) | GIF, MP4, PNG, Python | An original OSFP-style transceiver modelled and rendered headless with Blender's Python API, embedded with `<image>` (GIF for HTML, PNG for PDF via `@deliveryTarget`) and `<object>` (MP4) |
 
+![An original OSFP-style transceiver, rendered headless with Blender's Python API](tpu/media/osfp-turntable.gif)
+
 Every fact has a source, a "checked" date and a licence in
 [`sources/sources.yaml`](sources/sources.yaml).
 
