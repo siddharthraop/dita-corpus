@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="gemma4-inputs-outputs" xml:lang="en-US">
+  <title><keyword keyref="gemma-4-name"/>: Inputs and outputs</title>
+  <shortdesc>Inputs and outputs for <keyword keyref="gemma-4-name"/>, as stated in its model card.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-07-08"/></critdates>
+    <metadata><prodinfo><prodname><keyword keyref="gemma-4-name"/></prodname><vrmlist><vrm version="4"/></vrmlist></prodinfo></metadata>
+    <data name="model-version" value="gemma-4"/>
+    <data name="evidence-subject" value="inputs-outputs"/>
+    <data name="source" value="gemma-overview" href="https://ai.google.dev/gemma/docs/core" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+  </prolog>
+  <conbody><p>All variants take text and images, at variable resolution and aspect ratio. Video and audio input are built in for E2B, E4B and 12B. The models produce text.</p></conbody>
+</concept>

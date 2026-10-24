@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<!-- AEGIS reads this map. check_coverage reads only the relationship table; coverage values are stated, partly, conflicting or linked. -->
+<map id="gemma-evidence" xml:lang="en-US">
+  <title>Gemma model documentation as regulatory evidence (sample set)</title>
+  <topicmeta>
+    <shortdesc>Requirement topics for EU AI Act Annexes XI and XII and four NIST AI RMF subcategories, evidence topics
+      adapted from the Gemma 4 and Gemma 3 model cards, and a relationship table that traces each requirement to its
+      evidence. A requirement row with an empty model cell is a documentation gap.</shortdesc>
+    <data name="licence" value="Evidence topics: CC BY 4.0, adapted from Google model cards and modified. Requirement topics: plain-language paraphrase." href="https://developers.google.com/site-policies" scope="external" format="html"/>
+  </topicmeta>
+  <mapref href="keys/gemma-keys.ditamap" processing-role="resource-only"/>
+  <mapref href="gemma-scheme.ditamap" type="subjectScheme" processing-role="resource-only"/>
+  <topichead navtitle="Requirements">
+    <topichead navtitle="EU AI Act Annex XI (authority pack)" audience="authority"><topicref href="requirements/aia-xi-1a.dita"/><topicref href="requirements/aia-xi-1b.dita"/><topicref href="requirements/aia-xi-1c.dita"/><topicref href="requirements/aia-xi-1d.dita"/><topicref href="requirements/aia-xi-1e.dita"/><topicref href="requirements/aia-xi-1f.dita"/><topicref href="requirements/aia-xi-2a.dita"/><topicref href="requirements/aia-xi-2b.dita"/><topicref href="requirements/aia-xi-2c.dita"/><topicref href="requirements/aia-xi-2d.dita"/><topicref href="requirements/aia-xi-2e.dita"/></topichead>
+    <topichead navtitle="EU AI Act Annex XII (downstream pack)" audience="downstream"><topicref href="requirements/aia-xii-1a.dita"/><topicref href="requirements/aia-xii-1b.dita"/><topicref href="requirements/aia-xii-1c.dita"/><topicref href="requirements/aia-xii-1d.dita"/><topicref href="requirements/aia-xii-1e.dita"/><topicref href="requirements/aia-xii-1f.dita"/><topicref href="requirements/aia-xii-1g.dita"/><topicref href="requirements/aia-xii-1h.dita"/><topicref href="requirements/aia-xii-2a.dita"/><topicref href="requirements/aia-xii-2b.dita"/><topicref href="requirements/aia-xii-2c.dita"/></topichead>
+    <topichead navtitle="NIST AI RMF (internal)" audience="internal"><topicref href="requirements/nist-govern-1-6.dita"/><topicref href="requirements/nist-map-2-2.dita"/><topicref href="requirements/nist-measure-2-8.dita"/><topicref href="requirements/nist-measure-2-9.dita"/></topichead>
+  </topichead>
+  <topichead navtitle="Evidence">
+    <topichead navtitle="Gemma 4" product="gemma-4"><topicref href="evidence/gemma4-overview.dita"/><topicref href="evidence/gemma4-inputs-outputs.dita"/><topicref href="evidence/gemma4-intended-use.dita"/><topicref href="evidence/gemma4-licence.dita"/><topicref href="evidence/gemma4-best-practices.dita"/><topicref href="evidence/gemma4-training-data.dita"/><topicref href="evidence/gemma4-preprocessing.dita"/><topicref href="evidence/gemma4-evaluation.dita"/><topicref href="evidence/gemma4-safety.dita"/><topicref href="evidence/gemma4-limitations.dita"/><topicref href="evidence/gemma4-ethics-risks.dita"/></topichead>
+    <topichead navtitle="Gemma 3" product="gemma-3"><topicref href="evidence/gemma3-overview.dita"/><topicref href="evidence/gemma3-inputs-outputs.dita"/><topicref href="evidence/gemma3-intended-use.dita"/><topicref href="evidence/gemma3-licence.dita"/><topicref href="evidence/gemma3-implementation.dita"/><topicref href="evidence/gemma3-training-data.dita"/><topicref href="evidence/gemma3-preprocessing.dita"/><topicref href="evidence/gemma3-evaluation.dita"/><topicref href="evidence/gemma3-safety.dita"/><topicref href="evidence/gemma3-limitations.dita"/></topichead>
+  </topichead>
+  <reltable id="trace" title="Requirement to evidence trace">
+    <relheader>
+      <relcolspec type="reference"><topicmeta><navtitle>Requirement</navtitle></topicmeta></relcolspec>
+      <relcolspec><topicmeta><navtitle>Gemma 4 evidence</navtitle></topicmeta></relcolspec>
+      <relcolspec><topicmeta><navtitle>Gemma 3 evidence</navtitle></topicmeta></relcolspec>
+    </relheader>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-1a.dita" audience="authority"/></relcell>
+      <relcell><topicref href="evidence/gemma4-intended-use.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-intended-use.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-1b.dita" audience="authority"/></relcell>
+      <relcell><topicref href="evidence/gemma4-licence.dita" product="gemma-4"><topicmeta><data name="coverage" value="linked"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-licence.dita" product="gemma-3"><topicmeta><data name="coverage" value="linked"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-1c.dita" audience="authority"/></relcell>
+      <relcell></relcell>
+      <relcell></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-1d.dita" audience="authority"/></relcell>
+      <relcell><topicref href="evidence/gemma4-overview.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-overview.dita" product="gemma-3"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-1e.dita" audience="authority"/></relcell>
+      <relcell><topicref href="evidence/gemma4-inputs-outputs.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-inputs-outputs.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-1f.dita" audience="authority"/></relcell>
+      <relcell><topicref href="evidence/gemma4-licence.dita" product="gemma-4"><topicmeta><data name="coverage" value="conflicting"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-licence.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-2a.dita" audience="authority"/></relcell>
+      <relcell><topicref href="evidence/gemma4-best-practices.dita" product="gemma-4"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-implementation.dita" product="gemma-3"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-2b.dita" audience="authority"/></relcell>
+      <relcell><topicref href="evidence/gemma4-overview.dita" product="gemma-4"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-overview.dita" product="gemma-3"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-2c.dita" audience="authority"/></relcell>
+      <relcell><topicref href="evidence/gemma4-training-data.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref><topicref href="evidence/gemma4-preprocessing.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-training-data.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref><topicref href="evidence/gemma3-preprocessing.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-2d.dita" audience="authority"/></relcell>
+      <relcell></relcell>
+      <relcell><topicref href="evidence/gemma3-implementation.dita" product="gemma-3"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xi-2e.dita" audience="authority"/></relcell>
+      <relcell></relcell>
+      <relcell></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-1a.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-intended-use.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-intended-use.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-1b.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-licence.dita" product="gemma-4"><topicmeta><data name="coverage" value="linked"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-licence.dita" product="gemma-3"><topicmeta><data name="coverage" value="linked"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-1c.dita" audience="downstream"/></relcell>
+      <relcell></relcell>
+      <relcell></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-1d.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-best-practices.dita" product="gemma-4"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+      <relcell></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-1e.dita" audience="downstream"/></relcell>
+      <relcell></relcell>
+      <relcell><topicref href="evidence/gemma3-implementation.dita" product="gemma-3"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-1f.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-overview.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-overview.dita" product="gemma-3"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-1g.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-inputs-outputs.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-inputs-outputs.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-1h.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-licence.dita" product="gemma-4"><topicmeta><data name="coverage" value="conflicting"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-licence.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-2a.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-best-practices.dita" product="gemma-4"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-implementation.dita" product="gemma-3"><topicmeta><data name="coverage" value="partly"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-2b.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-overview.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref><topicref href="evidence/gemma4-inputs-outputs.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-overview.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref><topicref href="evidence/gemma3-inputs-outputs.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/aia-xii-2c.dita" audience="downstream"/></relcell>
+      <relcell><topicref href="evidence/gemma4-training-data.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-training-data.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/nist-govern-1-6.dita" audience="internal"/></relcell>
+      <relcell></relcell>
+      <relcell></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/nist-map-2-2.dita" audience="internal"/></relcell>
+      <relcell><topicref href="evidence/gemma4-limitations.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-limitations.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/nist-measure-2-8.dita" audience="internal"/></relcell>
+      <relcell><topicref href="evidence/gemma4-ethics-risks.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell></relcell>
+    </relrow>
+    <relrow>
+      <relcell><topicref href="requirements/nist-measure-2-9.dita" audience="internal"/></relcell>
+      <relcell><topicref href="evidence/gemma4-overview.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref><topicref href="evidence/gemma4-evaluation.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref><topicref href="evidence/gemma4-safety.dita" product="gemma-4"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+      <relcell><topicref href="evidence/gemma3-overview.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref><topicref href="evidence/gemma3-evaluation.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref><topicref href="evidence/gemma3-safety.dita" product="gemma-3"><topicmeta><data name="coverage" value="stated"/></topicmeta></topicref></relcell>
+    </relrow>
+  </reltable>
+</map>

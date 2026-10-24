@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="aia-xi-1f" xml:lang="en-US">
+  <title>Annex XI 1(f): Licence</title>
+  <shortdesc>The licence under which the model is provided.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao</author>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-24"/></critdates>
+    <metadata><audience type="authority"/></metadata>
+    <data name="requirement-id" value="aia.xi-1f"/>
+    <data name="framework" value="eu-ai-act"/>
+    <data name="source" value="eu-ai-act-annex-xi" href="https://artificialintelligenceact.eu/annex/11/" format="html" scope="external"/>
+    <data name="licence" value="Plain-language paraphrase of the legal or framework text. Not legal advice."/>
+  </prolog>
+  <refbody>
+    <properties id="requirement">
+      <property><proptype>Requirement</proptype><propvalue><codeph>aia.xi-1f</codeph></propvalue></property>
+      <property><proptype>Legal source</proptype><propvalue>Regulation (EU) 2024/1689 (AI Act), Annex XI, Section 1, point 1(f)</propvalue></property>
+      <property><proptype>Pack</proptype><propvalue>Authority pack (AI Office and national authorities)</propvalue></property>
+    </properties>
+    <section id="evidence-rule"><title>What counts as evidence</title>
+      <p>A topic that states this information for the model version in the pack. The relationship table links each
+        evidence topic to this requirement. A requirement with no linked topic is a gap.</p></section>
+  </refbody>
+</reference>

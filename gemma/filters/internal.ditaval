@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE val PUBLIC "-//OASIS//DTD DITA DITAVAL//EN" "ditaval.dtd">
+<!-- Internal pack for the current model (Gemma 4). Copy and change @product to build a pack for another version. -->
+<val>
+  <prop att="audience" val="internal" action="include"/>
+  <prop att="audience" action="exclude"/>
+  <prop att="product" val="gemma-4" action="include"/>
+  <prop att="product" action="exclude"/>
+</val>

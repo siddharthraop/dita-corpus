@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE subjectScheme PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "subjectScheme.dtd">
+<subjectScheme id="gemma-scheme">
+  <title>Gemma evidence subject scheme</title>
+  <subjectdef keys="packs"><topicmeta><navtitle>Evidence packs</navtitle></topicmeta>
+    <subjectdef keys="authority"><topicmeta><navtitle>AI Office and national authorities (Annex XI)</navtitle></topicmeta></subjectdef>
+    <subjectdef keys="downstream"><topicmeta><navtitle>Downstream providers (Annex XII)</navtitle></topicmeta></subjectdef>
+    <subjectdef keys="internal"><topicmeta><navtitle>Internal governance (NIST AI RMF)</navtitle></topicmeta></subjectdef>
+  </subjectdef>
+  <subjectdef keys="models"><topicmeta><navtitle>Model versions</navtitle></topicmeta>
+    <subjectdef keys="gemma-4"><topicmeta><navtitle>Gemma 4</navtitle></topicmeta></subjectdef>
+    <subjectdef keys="gemma-3"><topicmeta><navtitle>Gemma 3</navtitle></topicmeta></subjectdef>
+  </subjectdef>
+  <enumerationdef><attributedef name="audience"/><subjectdef keyref="packs"/></enumerationdef>
+  <enumerationdef><attributedef name="product"/><subjectdef keyref="models"/></enumerationdef>
+</subjectScheme>

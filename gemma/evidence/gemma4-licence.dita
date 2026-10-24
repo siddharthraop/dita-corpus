@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="gemma4-licence" xml:lang="en-US">
+  <title><keyword keyref="gemma-4-name"/>: Licence</title>
+  <shortdesc>Licence for <keyword keyref="gemma-4-name"/>, as stated in its model card.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-07-30"/></critdates>
+    <metadata><prodinfo><prodname><keyword keyref="gemma-4-name"/></prodname><vrmlist><vrm version="4"/></vrmlist></prodinfo></metadata>
+    <data name="model-version" value="gemma-4"/>
+    <data name="evidence-subject" value="licence"/>
+    <data name="source" value="gemma4-card" href="https://ai.google.dev/gemma/docs/core/model_card_4" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+  </prolog>
+  <conbody><p>The model card states the licence as Apache 2.0. The Gemma overview page also links to the Gemma terms, so two licence statements exist for the same model.</p></conbody>
+</concept>
