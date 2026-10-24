@@ -38,6 +38,13 @@ Turn dynamic port allocation on with `--enable-dynamic-port-allocation`, or off 
 | TCP TIME_WAIT Timeout | {{ nat_tcp_time_wait_timeout }} | `--tcp-time-wait-timeout` |
 | ICMP Mapping Idle Timeout (Public NAT only) | {{ nat_icmp_idle_timeout }} | `--icmp-idle-timeout` |
 
+:::{note}
+The TCP TIME_WAIT default depends on when the gateway was created. Gateways created on
+or after {{ nat_time_wait_change_date }} default to {{ nat_tcp_time_wait_timeout }}
+seconds. Earlier gateways keep {{ nat_tcp_time_wait_timeout_legacy }} seconds unless you
+change the value with `--tcp-time-wait-timeout`.
+:::
+
 ### Change NAT timeouts
 
 ```bash

@@ -17,7 +17,9 @@ myst_substitutions = {
     "nat_udp_idle_timeout": "30",
     "nat_tcp_established_idle_timeout": "1200",
     "nat_tcp_transitory_idle_timeout": "30",
-    "nat_tcp_time_wait_timeout": "120",
+    "nat_tcp_time_wait_timeout": "30",
+    "nat_tcp_time_wait_timeout_legacy": "120",
+    "nat_time_wait_change_date": "September 30, 2026",
     "nat_icmp_idle_timeout": "30",
     # Ports
     "nat_max_ports_per_vm": "65536",
