@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<!-- Specialized elements on purpose: <choicetable> and <hazardstatement> have no Markdown equivalent.
+     MANIFEST's agent must propose a mapping rule for them (or send them to a writer). -->
+<task id="tpu-v5e-slice-planning" xml:lang="en-US">
+  <title>Choose a <keyword keyref="product-v5e"/> slice shape</title>
+  <shortdesc>Choose the slice shape for a <keyword keyref="product-v5e"/> TPU VM from the number of chips your
+    workload needs, then check your quota before you create the VM.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-v5e" href="https://docs.cloud.google.com/tpu/docs/v5e" format="html" scope="external"/>
+    <data name="source" value="tpu-quota" href="https://docs.cloud.google.com/tpu/docs/quota" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source pages and modified: shapes from the v5e configurations table, restructured as a DITA task with a choice table and a hazard statement."/>
+  </prolog>
+  <taskbody>
+    <context>
+      <note conref="../reuse/tpu-warehouse.dita#tpu-warehouse/note-slice-shape"/>
+      <hazardstatement type="caution">
+        <messagepanel>
+          <typeofhazard>Not enough Cloud TPU quota in the zone.</typeofhazard>
+          <consequence>Cloud TPU quota limits the number of TPU cores your project can use in each zone, so a
+            slice larger than your remaining quota can't be created.</consequence>
+          <howtoavoid>Check your quota for the zone on the Quotas page of the Google Cloud console, and request an
+            increase before you create the VM.</howtoavoid>
+        </messagepanel>
+      </hazardstatement>
+    </context>
+    <steps>
+      <step>
+        <cmd>Find the number of chips your workload needs, and choose the topology that matches it.</cmd>
+        <choicetable id="shape-choices">
+          <chhead><choptionhd>Chips you need</choptionhd><chdeschd>Topology and hosts</chdeschd></chhead>
+          <chrow><choption>4</choption><chdesc>2x2, half of one host</chdesc></chrow>
+          <chrow><choption>8</choption><chdesc>2x4, one host</chdesc></chrow>
+          <chrow><choption>16</choption><chdesc>4x4, two hosts</chdesc></chrow>
+        </choicetable>
+      </step>
+      <step>
+        <cmd>Check the Cloud TPU quota in the zone where you plan to create the VM.</cmd>
+      </step>
+      <step>
+        <cmd>Create the VM with that topology. For the command, see <xref href="tpu-create-vm.dita" type="task"/>.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>
