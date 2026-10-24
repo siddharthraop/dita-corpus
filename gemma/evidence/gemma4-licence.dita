@@ -13,5 +13,5 @@
     <data name="source" value="gemma4-card" href="https://ai.google.dev/gemma/docs/core/model_card_4" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
   </prolog>
-  <conbody><p>The model card states the licence as Apache 2.0. The Gemma overview page also links to the Gemma terms, so two licence statements exist for the same model.</p></conbody>
+  <conbody><p>The model card states the licence as <keyword keyref="gemma-4-licence"/>. The Gemma overview page also links to the Gemma terms, so two licence statements exist for the same model.</p></conbody>
 </concept>

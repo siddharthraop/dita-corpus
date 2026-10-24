@@ -13,5 +13,5 @@
     <data name="source" value="gemma3-card" href="https://ai.google.dev/gemma/docs/core/model_card_3" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
   </prolog>
-  <conbody><p>The card links to the Gemma Terms of Use and does not name a separate model licence.</p></conbody>
+  <conbody><p>The card links to the <keyword keyref="gemma-3-licence"/> and does not name a separate model licence.</p></conbody>
 </concept>
