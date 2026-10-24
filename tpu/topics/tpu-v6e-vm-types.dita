@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-v6e-vm-types" xml:lang="en-US">
+  <title><keyword keyref="product-v6e"/> VM types</title>
+  <shortdesc>The VM types available for <keyword keyref="product-v6e"/> and the host resources each one provides.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-v6e" href="https://docs.cloud.google.com/tpu/docs/v6e" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <refbody>
+    <section id="vm-types">
+      <title>VM types</title>
+      <table outputclass="vm-types"><tgroup cols="5"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><colspec colname="c4"/><colspec colname="c5"/><thead><row><entry>VM</entry><entry>Chips per VM</entry><entry>vCPUs</entry><entry>RAM (GB)</entry><entry>NUMA nodes</entry></row></thead><tbody>
+<row><entry>1-chip VM</entry><entry>1</entry><entry>44</entry><entry>176</entry><entry>1</entry></row>
+<row><entry>4-chip VM</entry><entry>4</entry><entry><keyword keyref="v6e-vcpus-4chip"/></entry><entry><keyword keyref="v6e-ram-4chip"/></entry><entry>1</entry></row>
+<row><entry>8-chip VM</entry><entry>8</entry><entry>360</entry><entry>1440</entry><entry>2</entry></row>
+</tbody></tgroup></table>
+      
+    </section>
+  </refbody>
+</reference>

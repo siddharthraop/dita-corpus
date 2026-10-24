@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<!-- KnowledgeFlow test case: this topic never says how a VM without an external IP reaches the internet. That answer is in the Cloud NAT set (nat/overview.md). -->
+<concept id="tpu-networking" xml:lang="en-US">
+  <title>Networking and access for Cloud TPU VMs</title>
+  <shortdesc>Choose the network, subnetwork and IP addressing for a TPU VM, and decide how it reaches Google APIs.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-08-05"/></critdates>
+    <metadata><audience type="network-sre"/></metadata>
+    <data name="source" value="tpu-networking" href="https://docs.cloud.google.com/tpu/docs/configure-networking-access" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <conbody>
+    <section id="custom-network">
+      <title>Custom network and subnetwork</title>
+      <p>By default a TPU VM uses the default network. Specify a custom network and subnetwork when you create the VM to
+        place it in your own VPC.</p>
+    </section>
+    <section id="ip-addresses">
+      <title>External and internal IP addresses</title>
+      <p>A TPU VM gets an external IP address by default. To create one without an external IP address, use the
+        <codeph>--internal-ips</codeph> flag with <codeph>gcloud compute tpus queued-resources create</codeph> or
+        <codeph>gcloud compute tpus tpu-vm create</codeph>. With the REST API, set <codeph>enable_external_ips</codeph> to
+        <codeph>false</codeph> in the <codeph>network_config</codeph> of the request body.</p>
+    </section>
+    <section id="private-google-access">
+      <title>Private Google Access</title>
+      <p>A TPU VM without an external IP address can reach Google APIs and services through Private Google Access on its
+        subnetwork. SSH access needs either an external IP address or Private Google Access.</p>
+    </section>
+  </conbody>
+</concept>

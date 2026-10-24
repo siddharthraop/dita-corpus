@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<!-- Every specification value in the TPU set is defined once here. Topics refer to keys, never to the number. Sources: sources/sources.yaml. Checked 2026-10-24. -->
+<map id="tpu-keys">
+  <title>Cloud TPU key definitions</title>
+  <!-- v5e: https://docs.cloud.google.com/tpu/docs/v5e -->
+  <keydef keys="v5e-peak-bf16"><topicmeta><keywords><keyword>197</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-peak-int8"><topicmeta><keywords><keyword>393</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-hbm-capacity"><topicmeta><keywords><keyword>16</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-hbm-bandwidth"><topicmeta><keywords><keyword>800</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-ici-bandwidth"><topicmeta><keywords><keyword>400</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-ici-ports"><topicmeta><keywords><keyword>4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-dram-per-host"><topicmeta><keywords><keyword>512</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-chips-per-host"><topicmeta><keywords><keyword>8</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-chips-per-pod"><topicmeta><keywords><keyword>256</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-topology"><topicmeta><keywords><keyword>2D torus</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-pod-bf16"><topicmeta><keywords><keyword>50.63</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-nic"><topicmeta><keywords><keyword>2 x 100 Gbps</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-dcn-per-pod"><topicmeta><keywords><keyword>6.4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-tensorcores"><topicmeta><keywords><keyword>1</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5e-runtime"><topicmeta><keywords><keyword>v2-alpha-tpuv5-lite</keyword></keywords></topicmeta></keydef>
+  <!-- v5p: https://docs.cloud.google.com/tpu/docs/v5p -->
+  <keydef keys="v5p-chips-per-pod"><topicmeta><keywords><keyword>8960</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-peak-bf16"><topicmeta><keywords><keyword>459</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-peak-fp8"><topicmeta><keywords><keyword>459</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-hbm-capacity"><topicmeta><keywords><keyword>95</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-hbm-bandwidth"><topicmeta><keywords><keyword>2765</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-ici-bandwidth"><topicmeta><keywords><keyword>1200</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-dcn-per-chip"><topicmeta><keywords><keyword>50</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-topology"><topicmeta><keywords><keyword>3D torus</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-chips-per-vm"><topicmeta><keywords><keyword>4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-machine-type"><topicmeta><keywords><keyword>ct5p-hightpu-4t</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-runtime"><topicmeta><keywords><keyword>v2-alpha-tpuv5</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-max-slice"><topicmeta><keywords><keyword>16x16x24</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-max-slice-chips"><topicmeta><keywords><keyword>6144</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-multislice-max"><topicmeta><keywords><keyword>18432</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-tensorcores"><topicmeta><keywords><keyword>2</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-sparsecores"><topicmeta><keywords><keyword>4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-vcpus-4chip"><topicmeta><keywords><keyword>208</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v5p-ram-4chip"><topicmeta><keywords><keyword>448</keyword></keywords></topicmeta></keydef>
+  <!-- v6e: https://docs.cloud.google.com/tpu/docs/v6e -->
+  <keydef keys="v6e-peak-bf16"><topicmeta><keywords><keyword>918</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-peak-int8"><topicmeta><keywords><keyword>1836</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-peak-fp8"><topicmeta><keywords><keyword>918</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-hbm-capacity"><topicmeta><keywords><keyword>32</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-hbm-bandwidth"><topicmeta><keywords><keyword>1638</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-ici-bandwidth"><topicmeta><keywords><keyword>800</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-ici-ports"><topicmeta><keywords><keyword>4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-dram-per-host"><topicmeta><keywords><keyword>1536</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-chips-per-host"><topicmeta><keywords><keyword>8</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-chips-per-pod"><topicmeta><keywords><keyword>256</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-topology"><topicmeta><keywords><keyword>2D torus</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-pod-bf16"><topicmeta><keywords><keyword>234.9</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-allreduce-per-pod"><topicmeta><keywords><keyword>102.4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-bisection-per-pod"><topicmeta><keywords><keyword>3.2</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-nic"><topicmeta><keywords><keyword>4 x 200 Gbps</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-dcn-per-pod"><topicmeta><keywords><keyword>25.6</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-dcn-per-chip"><topicmeta><keywords><keyword>100</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-tensorcores"><topicmeta><keywords><keyword>1</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-sparsecores"><topicmeta><keywords><keyword>2</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-runtime"><topicmeta><keywords><keyword>v2-alpha-tpuv6e</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-vcpus-4chip"><topicmeta><keywords><keyword>180</keyword></keywords></topicmeta></keydef>
+  <keydef keys="v6e-ram-4chip"><topicmeta><keywords><keyword>720</keyword></keywords></topicmeta></keydef>
+  <!-- tpu7x: https://docs.cloud.google.com/tpu/docs/tpu7x -->
+  <keydef keys="tpu7x-chips-per-pod"><topicmeta><keywords><keyword>9216</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-peak-bf16"><topicmeta><keywords><keyword>2307</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-peak-fp8"><topicmeta><keywords><keyword>4614</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-hbm-capacity"><topicmeta><keywords><keyword>192</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-hbm-bandwidth"><topicmeta><keywords><keyword>7380</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-ici-bandwidth"><topicmeta><keywords><keyword>1200</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-dcn-per-chip"><topicmeta><keywords><keyword>100</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-tensorcores"><topicmeta><keywords><keyword>2</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-sparsecores"><topicmeta><keywords><keyword>4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-vcpus-4chip"><topicmeta><keywords><keyword>224</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-ram-4chip"><topicmeta><keywords><keyword>960</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-chips-per-vm"><topicmeta><keywords><keyword>4</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-machine-type"><topicmeta><keywords><keyword>tpu7x-standard-4t</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-chiplet-hbm"><topicmeta><keywords><keyword>96</keyword></keywords></topicmeta></keydef>
+  <keydef keys="tpu7x-max-api-slice"><topicmeta><keywords><keyword>2048</keyword></keywords></topicmeta></keydef>
+  <!-- shared: product names -->
+  <keydef keys="product-v5e"><topicmeta><keywords><keyword>TPU v5e</keyword></keywords></topicmeta></keydef>
+  <keydef keys="product-v5p"><topicmeta><keywords><keyword>TPU v5p</keyword></keywords></topicmeta></keydef>
+  <keydef keys="product-v6e"><topicmeta><keywords><keyword>TPU v6e (Trillium)</keyword></keywords></topicmeta></keydef>
+  <keydef keys="product-tpu7x"><topicmeta><keywords><keyword>TPU7x (Ironwood)</keyword></keywords></topicmeta></keydef>
+  <keydef keys="product-cloud-tpu"><topicmeta><keywords><keyword>Cloud TPU</keyword></keywords></topicmeta></keydef>
+</map>

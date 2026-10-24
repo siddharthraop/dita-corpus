@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Classification Map//EN" "classifyMap.dtd">
+<!-- Which subjects each topic is about. KnowledgeFlow joins documentation sets through these shared subjects. -->
+<map id="tpu-classification">
+  <title>Cloud TPU topic classification</title>
+  <mapref href="tpu-scheme.ditamap" type="subjectScheme"/>
+  <topicref href="../topics/tpu-overview.dita"><topicmeta><navtitle>tpu-overview</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-generations-compared.dita"><topicmeta><navtitle>tpu-generations-compared</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu7x-memory.dita"><topicmeta><navtitle>tpu7x-memory</navtitle></topicmeta><topicsubject><subjectref keyref="memory"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-software-versions.dita"><topicmeta><navtitle>tpu-software-versions</navtitle></topicmeta><topicsubject><subjectref keyref="software"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-networking.dita"><topicmeta><navtitle>tpu-networking</navtitle></topicmeta><topicsubject><subjectref keyref="networking"/><subjectref keyref="egress"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-create-vm.dita"><topicmeta><navtitle>tpu-create-vm</navtitle></topicmeta><topicsubject><subjectref keyref="provisioning"/></topicsubject></topicref>
+  <topicref href="../topics/osfp-transceiver.dita"><topicmeta><navtitle>osfp-transceiver</navtitle></topicmeta><topicsubject><subjectref keyref="optics"/><subjectref keyref="networking"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v5e-intro.dita"><topicmeta><navtitle>tpu-v5e-intro</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v5e-specifications.dita"><topicmeta><navtitle>tpu-v5e-specifications</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v5e-configurations.dita"><topicmeta><navtitle>tpu-v5e-configurations</navtitle></topicmeta><topicsubject><subjectref keyref="topology"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v5e-vm-types.dita"><topicmeta><navtitle>tpu-v5e-vm-types</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/><subjectref keyref="provisioning"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v5p-intro.dita"><topicmeta><navtitle>tpu-v5p-intro</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v5p-specifications.dita"><topicmeta><navtitle>tpu-v5p-specifications</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v5p-configurations.dita"><topicmeta><navtitle>tpu-v5p-configurations</navtitle></topicmeta><topicsubject><subjectref keyref="topology"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v5p-vm-types.dita"><topicmeta><navtitle>tpu-v5p-vm-types</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/><subjectref keyref="provisioning"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v6e-intro.dita"><topicmeta><navtitle>tpu-v6e-intro</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v6e-specifications.dita"><topicmeta><navtitle>tpu-v6e-specifications</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v6e-configurations.dita"><topicmeta><navtitle>tpu-v6e-configurations</navtitle></topicmeta><topicsubject><subjectref keyref="topology"/></topicsubject></topicref>
+  <topicref href="../topics/tpu-v6e-vm-types.dita"><topicmeta><navtitle>tpu-v6e-vm-types</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/><subjectref keyref="provisioning"/></topicsubject></topicref>
+  <topicref href="../topics/tpu7x-intro.dita"><topicmeta><navtitle>tpu7x-intro</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu7x-specifications.dita"><topicmeta><navtitle>tpu7x-specifications</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/></topicsubject></topicref>
+  <topicref href="../topics/tpu7x-configurations.dita"><topicmeta><navtitle>tpu7x-configurations</navtitle></topicmeta><topicsubject><subjectref keyref="topology"/></topicsubject></topicref>
+  <topicref href="../topics/tpu7x-vm-types.dita"><topicmeta><navtitle>tpu7x-vm-types</navtitle></topicmeta><topicsubject><subjectref keyref="hardware"/><subjectref keyref="provisioning"/></topicsubject></topicref>
+</map>

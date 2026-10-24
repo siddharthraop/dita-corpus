@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-v5e-configurations" xml:lang="en-US">
+  <title><keyword keyref="product-v5e"/> supported configurations</title>
+  <shortdesc>The slice shapes you can request for <keyword keyref="product-v5e"/>, and how many chips and hosts each uses.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-v5e" href="https://docs.cloud.google.com/tpu/docs/v5e" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <refbody>
+    <section id="slice-shapes">
+      <title>Slice shapes</title>
+      <note conref="../reuse/tpu-warehouse.dita#tpu-warehouse/note-slice-shape"/>
+      <table outputclass="slice-shapes"><tgroup cols="3"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><thead><row><entry>Topology</entry><entry>TPU chips</entry><entry>Hosts</entry></row></thead><tbody>
+<row><entry>1x1</entry><entry>1</entry><entry>1/8</entry></row>
+<row><entry>2x2</entry><entry>4</entry><entry>1/2</entry></row>
+<row><entry>2x4</entry><entry>8</entry><entry>1</entry></row>
+<row><entry>4x4</entry><entry>16</entry><entry>2</entry></row>
+<row><entry>4x8</entry><entry>32</entry><entry>4</entry></row>
+<row><entry>8x8</entry><entry>64</entry><entry>8</entry></row>
+<row><entry>8x16</entry><entry>128</entry><entry>16</entry></row>
+<row><entry>16x16</entry><entry>256</entry><entry>32</entry></row>
+</tbody></tgroup></table>
+      
+    </section>
+  </refbody>
+</reference>

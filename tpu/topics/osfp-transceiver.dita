@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="osfp-transceiver" xml:lang="en-US">
+  <title>Optical transceiver modules (illustrative)</title>
+  <shortdesc>A pluggable optical transceiver turns the electrical signals on a host board into light for a fiber link, and
+    back. This topic uses an original 3D model of an OSFP-style module to show its parts.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao</author>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-24"/></critdates>
+    <metadata><audience type="network-sre"/></metadata>
+    <data name="source" value="osfp-msa" href="https://osfpmsa.org/press-releases/pr-20170317.html" format="html" scope="external"/>
+    <data name="licence" value="Original text and 3D model. Facts from the OSFP MSA announcement."/>
+  </prolog>
+  <conbody>
+    <p>OSFP stands for Octal Small Form Factor Pluggable. The OSFP MSA group announced the form factor in March 2017
+      for 400G optics, with eight electrical lanes, and designed it to carry 800G modules as lane speeds rose.</p>
+    <fig id="fig-osfp-turntable">
+      <title>OSFP-style transceiver, turntable view</title>
+      <image href="../../media/renders/osfp-turntable.gif" placement="break" deliveryTarget="html5 webhelp">
+        <alt>Animated 3D model of a pluggable optical transceiver turning on its axis</alt></image>
+      <image href="../../media/renders/osfp-hero.png" placement="break" deliveryTarget="pdf">
+        <alt>3D model of a pluggable optical transceiver</alt></image>
+    </fig>
+    <note type="note">The model is an original, generic design for illustration. It is not a Google part or any vendor's
+      product.</note>
+    <section id="parts">
+      <title>Parts of the module</title>
+      <dl>
+        <dlentry><dt>Heat-sink fins</dt><dd>Run along the top of the shell and carry heat into the switch's airflow.</dd></dlentry>
+        <dlentry><dt>Optical port</dt><dd>The front opening where the fiber connector plugs in.</dd></dlentry>
+        <dlentry><dt>Pull tab</dt><dd>Releases the latch so you can remove the module from its cage.</dd></dlentry>
+        <dlentry><dt>Edge connector</dt><dd>Gold contacts at the rear that mate with the host connector inside the cage.</dd></dlentry>
+      </dl>
+    </section>
+    <section id="video">
+      <title>Video</title>
+      <p>The same model as a short video, for players that support MP4:</p>
+      <object data="../../media/renders/osfp-turntable.mp4" type="video/mp4" width="640" height="360" outputclass="video">
+        <desc>Twelve-second turntable video of the 3D transceiver model.</desc>
+        <param name="controls" value="true"/>
+        <param name="loop" value="true"/>
+      </object>
+    </section>
+  </conbody>
+</concept>

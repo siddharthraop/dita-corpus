@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-v5p-specifications" xml:lang="en-US">
+  <title><keyword keyref="product-v5p"/> specifications</title>
+  <shortdesc>Per-chip and per-pod specifications for <keyword keyref="product-v5p"/>.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-v5p" href="https://docs.cloud.google.com/tpu/docs/v5p" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <refbody>
+    <section id="system-architecture">
+      <title>System architecture</title>
+      <table id="spec-table" outputclass="spec"><tgroup cols="3"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><thead><row><entry>Specification</entry><entry>Value</entry><entry>Unit</entry></row></thead><tbody>
+<row><entry>Number of chips per pod</entry><entry><keyword keyref="v5p-chips-per-pod"/></entry><entry></entry></row>
+<row><entry>Peak compute per chip (BF16)</entry><entry><keyword keyref="v5p-peak-bf16"/></entry><entry>TFLOPs</entry></row>
+<row><entry>Peak compute per chip (FP8)</entry><entry><keyword keyref="v5p-peak-fp8"/></entry><entry>TFLOPs</entry></row>
+<row><entry>HBM capacity per chip</entry><entry><keyword keyref="v5p-hbm-capacity"/></entry><entry>GiB</entry></row>
+<row><entry>HBM bandwidth per chip</entry><entry><keyword keyref="v5p-hbm-bandwidth"/></entry><entry>GBps</entry></row>
+<row><entry>Bidirectional ICI bandwidth per chip</entry><entry><keyword keyref="v5p-ici-bandwidth"/></entry><entry>GBps</entry></row>
+<row><entry>DCN bandwidth per chip</entry><entry><keyword keyref="v5p-dcn-per-chip"/></entry><entry>Gbps</entry></row>
+<row><entry>Interconnect topology</entry><entry><keyword keyref="v5p-topology"/></entry><entry></entry></row>
+</tbody></tgroup></table>
+      <p>The largest single slice is <keyword keyref="v5p-max-slice"/> (<keyword keyref="v5p-max-slice-chips"/> chips). Multislice training scales to <keyword keyref="v5p-multislice-max"/> chips.</p>
+    </section>
+  </refbody>
+</reference>

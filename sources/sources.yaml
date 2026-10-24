@@ -1,0 +1,138 @@
+# Where every fact in this corpus comes from.
+# Each value was read from the live page on the "checked" date. When a page changes,
+# update the value here first, then the key that holds it. tools/validate.py reads this
+# file to report stale sources (checked more than 90 days ago).
+#
+# Google content is licensed CC BY 4.0 (code samples Apache 2.0):
+#   https://developers.google.com/site-policies
+# All adapted topics carry an attribution and "modified" notice in their prolog.
+
+license_policy: https://developers.google.com/site-policies
+
+sources:
+  tpu7x:
+    title: "TPU7x (Ironwood)"
+    url: https://docs.cloud.google.com/tpu/docs/tpu7x
+    page_updated: 2026-10-22
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  tpu-v6e:
+    title: "TPU v6e"
+    url: https://docs.cloud.google.com/tpu/docs/v6e
+    page_updated: 2026-10-22
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  tpu-v5p:
+    title: "TPU v5p"
+    url: https://docs.cloud.google.com/tpu/docs/v5p
+    page_updated: 2026-10-22
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  tpu-v5e:
+    title: "TPU v5e"
+    url: https://docs.cloud.google.com/tpu/docs/v5e
+    page_updated: 2026-10-22
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  tpu-runtimes:
+    title: "TPU software versions"
+    url: https://docs.cloud.google.com/tpu/docs/runtimes
+    page_updated: 2026-10-20
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  tpu-networking:
+    title: "Configure networking and access to your Cloud TPU"
+    url: https://docs.cloud.google.com/tpu/docs/configure-networking-access
+    page_updated: 2026-08-05
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+    note: "Does not mention Cloud NAT. This is the cross-set gap KnowledgeFlow finds."
+  tpu-api-v2:
+    title: "Cloud TPU API v2 discovery document (revision 20261001)"
+    url: https://github.com/googleapis/google-api-go-client/blob/main/tpu/v2/tpu-api.json
+    reference: https://docs.cloud.google.com/tpu/docs/reference/rest
+    checked: 2026-10-24
+    licence: "Discovery document published by Google; see the googleapis repository licence"
+    local_copy: sources/tpu-api-v2.discovery.json
+  nat-tune:
+    title: "Tune NAT configuration"
+    url: https://docs.cloud.google.com/nat/docs/tune-nat-configuration
+    page_updated: 2026-10-22
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  nat-overview:
+    title: "Cloud NAT overview"
+    url: https://docs.cloud.google.com/nat/docs/overview
+    page_updated: 2026-10-22
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  nat-release-notes:
+    title: "Cloud NAT release notes"
+    url: https://docs.cloud.google.com/nat/docs/release-notes
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+    note: "31 March 2026 announcement: TCP TIME_WAIT default 120 s -> 30 s for new gateways; all regions from 30 September 2026."
+  gemma4-card:
+    title: "Gemma 4 model card"
+    url: https://ai.google.dev/gemma/docs/core/model_card_4
+    page_updated: 2026-07-30
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  gemma-overview:
+    title: "Gemma models overview"
+    url: https://ai.google.dev/gemma/docs/core
+    page_updated: 2026-07-08
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  gemma3-card:
+    title: "Gemma 3 model card"
+    url: https://ai.google.dev/gemma/docs/core/model_card_3
+    page_updated: 2025-04-09
+    checked: 2026-10-24
+    licence: CC-BY-4.0
+  eu-ai-act-annex-xi:
+    title: "EU AI Act, Annex XI (technical documentation for GPAI model providers), Section 1"
+    url: https://artificialintelligenceact.eu/annex/11/
+    official: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    checked: 2026-10-24
+    licence: "EU legal text; requirement topics paraphrase it in plain words"
+  eu-ai-act-annex-xii:
+    title: "EU AI Act, Annex XII (transparency information for downstream providers)"
+    url: https://artificialintelligenceact.eu/annex/12/
+    official: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+    checked: 2026-10-24
+    licence: "EU legal text; requirement topics paraphrase it in plain words"
+  osfp-msa:
+    title: "OSFP MSA Group announces form factor specification (press release, 17 March 2017)"
+    url: https://osfpmsa.org/press-releases/pr-20170317.html
+    checked: 2026-10-24
+    licence: "Facts only; the 3D model in media/ is an original, generic design, not any vendor's part"
+  nist-ai-rmf:
+    title: "NIST AI Risk Management Framework 1.0 (NIST AI 100-1)"
+    url: https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf
+    checked: 2026-10-24
+    licence: "US government work"
+
+# Real inconsistencies on the live pages, kept in the corpus on purpose.
+# MANIFEST, AlignR and VALID use them as test cases. Do not "fix" them in the source;
+# each project must detect them.
+known_issues:
+  - id: KI-1
+    summary: "v6e HBM capacity unit differs between pages"
+    detail: "The v6e page gives HBM capacity per chip as 32 GB. The TPU7x comparison table gives v6e as 32 in a GiB column."
+    sources: [tpu-v6e, tpu7x]
+    where: [tpu/topics/tpu-v6e-specifications.dita, tpu/topics/tpu-generations-compared.dita]
+  - id: KI-2
+    summary: "TPU7x HBM bandwidth: table and prose disagree"
+    detail: "The specification table gives 7380 GBps (7.38 TB/s). The memory hierarchy prose says approximately 7.37 TB/s."
+    sources: [tpu7x]
+    where: [tpu/topics/tpu7x-specifications.dita, tpu/topics/tpu7x-memory.dita]
+  - id: KI-3
+    summary: "v5e HBM bandwidth unit"
+    detail: "The v5e page gives HBM bandwidth as 800 GiBps; every other generation uses GBps."
+    sources: [tpu-v5e]
+    where: [tpu/topics/tpu-v5e-specifications.dita]
+  - id: KI-0-retired
+    summary: "TPU7x HBM capacity 192 GiB vs 192 GB (retired)"
+    detail: "Cited in earlier design documents. On 2026-10-24 the live page states 192 GiB in both the table and the prose, so the corpus no longer reproduces it."
+    sources: [tpu7x]

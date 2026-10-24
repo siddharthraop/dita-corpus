@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-v5p-configurations" xml:lang="en-US">
+  <title><keyword keyref="product-v5p"/> supported configurations</title>
+  <shortdesc>The slice shapes you can request for <keyword keyref="product-v5p"/>, and how many chips and hosts each uses.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-v5p" href="https://docs.cloud.google.com/tpu/docs/v5p" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <refbody>
+    <section id="slice-shapes">
+      <title>Slice shapes</title>
+      <note conref="../reuse/tpu-warehouse.dita#tpu-warehouse/note-slice-shape"/>
+      <table outputclass="slice-shapes"><tgroup cols="5"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><colspec colname="c4"/><colspec colname="c5"/><thead><row><entry>Topology</entry><entry>Chips</entry><entry>Hosts</entry><entry>Cubes</entry><entry>Twisted supported</entry></row></thead><tbody>
+<row><entry>2x2x1</entry><entry>4</entry><entry>1</entry><entry>N/A</entry><entry>N/A</entry></row>
+<row><entry>2x2x2</entry><entry>8</entry><entry>2</entry><entry>N/A</entry><entry>N/A</entry></row>
+<row><entry>2x4x4</entry><entry>32</entry><entry>8</entry><entry>N/A</entry><entry>N/A</entry></row>
+<row><entry>4x4x4</entry><entry>64</entry><entry>16</entry><entry>1</entry><entry>N/A</entry></row>
+<row><entry>4x4x8</entry><entry>128</entry><entry>32</entry><entry>2</entry><entry>Yes</entry></row>
+<row><entry>4x8x8</entry><entry>256</entry><entry>64</entry><entry>4</entry><entry>Yes</entry></row>
+<row><entry>8x8x8</entry><entry>512</entry><entry>128</entry><entry>8</entry><entry>N/A</entry></row>
+<row><entry>8x8x16</entry><entry>1024</entry><entry>256</entry><entry>16</entry><entry>Yes</entry></row>
+<row><entry>8x16x16</entry><entry>2048</entry><entry>512</entry><entry>32</entry><entry>Yes</entry></row>
+<row><entry>16x16x16</entry><entry>4096</entry><entry>1024</entry><entry>64</entry><entry>N/A</entry></row>
+<row><entry>16x16x24</entry><entry>6144</entry><entry>1536</entry><entry>96</entry><entry>N/A</entry></row>
+</tbody></tgroup></table>
+      <p>Every v5p VM uses the <keyword keyref="v5p-machine-type"/> machine type with <keyword keyref="v5p-chips-per-vm"/> chips.</p>
+    </section>
+  </refbody>
+</reference>

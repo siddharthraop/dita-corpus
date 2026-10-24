@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "topic.dtd">
+<topic id="tpu-warehouse">
+  <title>Cloud TPU reusable content</title>
+  <shortdesc>Notes, steps and phrases that several topics reuse by content reference. Edit them here only.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-24"/></critdates>
+    <data name="licence" value="CC BY 4.0. Adapted from Google Cloud TPU documentation and modified."/>
+  </prolog>
+  <body>
+    <note id="note-slice-shape" type="note">A slice shape gives the number of chips along each dimension of the
+      interconnect. A 2D shape is written <codeph>AxB</codeph> and a 3D shape <codeph>AxBxC</codeph>. Multiply the
+      dimensions to get the number of chips in the slice.</note>
+    <note id="note-tpu-api-tpu7x" type="important">The Cloud TPU API is no longer under active development and is not
+      supported on <keyword keyref="product-tpu7x"/> and later. Create <keyword keyref="product-tpu7x"/> capacity with
+      Google Kubernetes Engine (GKE) or Compute Engine.</note>
+    <note id="note-tensorflow-tpu7x" type="note">JAX and PyTorch are supported on <keyword keyref="product-tpu7x"/>.
+      TensorFlow is not.</note>
+    <note id="note-internal-ips" type="tip">To create a TPU VM without an external IP address, add the
+      <codeph>--internal-ips</codeph> flag. The VM can then reach Google APIs and services only through Private Google
+      Access.</note>
+    <p>The view in <ph id="ph-pages-checked">this topic set was checked against the published pages on 24 October 2026</ph>.</p>
+  </body>
+</topic>

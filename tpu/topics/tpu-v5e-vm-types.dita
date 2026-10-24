@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-v5e-vm-types" xml:lang="en-US">
+  <title><keyword keyref="product-v5e"/> VM types</title>
+  <shortdesc>The VM types available for <keyword keyref="product-v5e"/> and the host resources each one provides.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-v5e" href="https://docs.cloud.google.com/tpu/docs/v5e" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <refbody>
+    <section id="vm-types">
+      <title>VM types</title>
+      <table outputclass="vm-types"><tgroup cols="5"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><colspec colname="c4"/><colspec colname="c5"/><thead><row><entry>VM type</entry><entry>Chips per VM</entry><entry>vCPUs</entry><entry>RAM (GB)</entry><entry>NUMA nodes</entry></row></thead><tbody>
+<row><entry>ct5lp-hightpu-1t</entry><entry>1</entry><entry>24</entry><entry>48</entry><entry>1</entry></row>
+<row><entry>ct5lp-hightpu-4t</entry><entry>4</entry><entry>112</entry><entry>192</entry><entry>1</entry></row>
+<row><entry>ct5lp-hightpu-8t</entry><entry>8</entry><entry>224</entry><entry>384</entry><entry>2</entry></row>
+</tbody></tgroup></table>
+      
+    </section>
+  </refbody>
+</reference>

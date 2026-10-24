@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="tpu-v5p-intro" xml:lang="en-US">
+  <title><keyword keyref="product-v5p"/></title>
+  <shortdesc><keyword keyref="product-v5p"/> is a training-focused generation. Each chip has <keyword keyref="v5p-tensorcores"/> TensorCores and <keyword keyref="v5p-sparsecores"/> SparseCores, and a pod holds <keyword keyref="v5p-chips-per-pod"/> chips connected in a <keyword keyref="v5p-topology"/>.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/><keywords><keyword>TPU v5p</keyword></keywords></metadata>
+    <data name="source" value="tpu-v5p" href="https://docs.cloud.google.com/tpu/docs/v5p" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <conbody>
+    <p>Use the specification topic to size a slice, the configurations topic to choose a slice shape, and the VM
+      types topic to see what each VM provides.</p>
+    
+  </conbody>
+</concept>

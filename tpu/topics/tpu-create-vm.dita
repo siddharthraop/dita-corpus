@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="tpu-create-vm" xml:lang="en-US">
+  <title>Create a TPU VM</title>
+  <shortdesc>Create a TPU VM for one generation. The command and software version depend on the generation, so build
+    this topic with that generation's DITAVAL file.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-20"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-runtimes" href="https://docs.cloud.google.com/tpu/docs/runtimes" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <taskbody>
+    <prereq><p>You have a Google Cloud project with the Cloud TPU API enabled and quota in your chosen zone.</p></prereq>
+    <steps>
+      <step conref="../reuse/tpu-task-warehouse.dita#tpu-task-warehouse/step-set-project"><cmd/></step><step platform="v5e"><cmd>Create the <keyword keyref="product-v5e"/> VM:</cmd>
+        <info><codeblock outputclass="language-bash">gcloud compute tpus tpu-vm create <varname>TPU_NAME</varname> \
+  --zone=<varname>ZONE</varname> \
+  --accelerator-type=<varname>ACCELERATOR_TYPE</varname> \
+  --version=<keyword keyref="v5e-runtime"/></codeblock></info></step><step platform="v5p"><cmd>Create the <keyword keyref="product-v5p"/> VM:</cmd>
+        <info><codeblock outputclass="language-bash">gcloud compute tpus tpu-vm create <varname>TPU_NAME</varname> \
+  --zone=<varname>ZONE</varname> \
+  --accelerator-type=<varname>ACCELERATOR_TYPE</varname> \
+  --version=<keyword keyref="v5p-runtime"/></codeblock></info></step><step platform="v6e"><cmd>Create the <keyword keyref="product-v6e"/> VM:</cmd>
+        <info><codeblock outputclass="language-bash">gcloud compute tpus tpu-vm create <varname>TPU_NAME</varname> \
+  --zone=<varname>ZONE</varname> \
+  --accelerator-type=<varname>ACCELERATOR_TYPE</varname> \
+  --version=<keyword keyref="v6e-runtime"/></codeblock></info></step><step platform="tpu7x"><cmd>Create <keyword keyref="product-tpu7x"/> capacity with GKE or Compute
+          Engine, using the <keyword keyref="tpu7x-machine-type"/> machine type.</cmd>
+        <info><note conref="../reuse/tpu-warehouse.dita#tpu-warehouse/note-tpu-api-tpu7x"/></info></step><step importance="optional"><cmd>To keep the VM off the public internet, add the <codeph>--internal-ips</codeph> flag.</cmd><info><note conref="../reuse/tpu-warehouse.dita#tpu-warehouse/note-internal-ips"/></info></step>
+    </steps>
+    <result><p>The VM appears in the list returned by <codeph>gcloud compute tpus tpu-vm list --zone=<varname>ZONE</varname></codeph>.</p></result>
+  </taskbody>
+</task>

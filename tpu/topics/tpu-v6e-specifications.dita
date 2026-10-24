@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-v6e-specifications" xml:lang="en-US">
+  <title><keyword keyref="product-v6e"/> specifications</title>
+  <shortdesc>Per-chip and per-pod specifications for <keyword keyref="product-v6e"/>.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-v6e" href="https://docs.cloud.google.com/tpu/docs/v6e" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <refbody>
+    <section id="system-architecture">
+      <title>System architecture</title>
+      <table id="spec-table" outputclass="spec"><tgroup cols="3"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><thead><row><entry>Specification</entry><entry>Value</entry><entry>Unit</entry></row></thead><tbody>
+<row><entry>Peak compute per chip (bf16)</entry><entry><keyword keyref="v6e-peak-bf16"/></entry><entry>TFLOPs</entry></row>
+<row><entry>Peak compute per chip (Int8)</entry><entry><keyword keyref="v6e-peak-int8"/></entry><entry>TOPs</entry></row>
+<row><entry>HBM capacity per chip</entry><entry><keyword keyref="v6e-hbm-capacity"/></entry><entry>GB</entry></row>
+<row><entry>HBM bandwidth per chip</entry><entry><keyword keyref="v6e-hbm-bandwidth"/></entry><entry>GBps</entry></row>
+<row><entry>Bidirectional ICI bandwidth per chip</entry><entry><keyword keyref="v6e-ici-bandwidth"/></entry><entry>GBps</entry></row>
+<row><entry>ICI ports per chip</entry><entry><keyword keyref="v6e-ici-ports"/></entry><entry></entry></row>
+<row><entry>DRAM per host</entry><entry><keyword keyref="v6e-dram-per-host"/></entry><entry>GiB</entry></row>
+<row><entry>Chips per host</entry><entry><keyword keyref="v6e-chips-per-host"/></entry><entry></entry></row>
+<row><entry>TPU Pod size</entry><entry><keyword keyref="v6e-chips-per-pod"/></entry><entry>chips</entry></row>
+<row><entry>Interconnect topology</entry><entry><keyword keyref="v6e-topology"/></entry><entry></entry></row>
+<row><entry>BF16 peak compute per Pod</entry><entry><keyword keyref="v6e-pod-bf16"/></entry><entry>PFLOPs</entry></row>
+<row><entry>All-reduce bandwidth per Pod</entry><entry><keyword keyref="v6e-allreduce-per-pod"/></entry><entry>TB/s</entry></row>
+<row><entry>Bisection bandwidth per Pod</entry><entry><keyword keyref="v6e-bisection-per-pod"/></entry><entry>TB/s</entry></row>
+<row><entry>Per-host NIC configuration</entry><entry><keyword keyref="v6e-nic"/></entry><entry></entry></row>
+<row><entry>Data center network (DCN) bandwidth per Pod</entry><entry><keyword keyref="v6e-dcn-per-pod"/></entry><entry>Tbps</entry></row>
+</tbody></tgroup></table>
+      
+    </section>
+  </refbody>
+</reference>

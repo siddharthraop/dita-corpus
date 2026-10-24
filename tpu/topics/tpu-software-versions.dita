@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-software-versions" xml:lang="en-US">
+  <title>TPU software versions</title>
+  <shortdesc>The software version to pass when you create a TPU VM, by generation and framework.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-20"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu-runtimes" href="https://docs.cloud.google.com/tpu/docs/runtimes" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    
+  </prolog>
+  <refbody>
+    <section id="versions">
+      <title>Versions by generation</title>
+      <table outputclass="software-versions"><tgroup cols="3"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><thead><row><entry>Generation</entry><entry>PyTorch and JAX</entry><entry>TensorFlow</entry></row></thead><tbody>
+<row platform="v5e"><entry><keyword keyref="product-v5e"/></entry><entry><codeph><keyword keyref="v5e-runtime"/></codeph></entry><entry>Version pattern <codeph>tpu-vm-tf-x.y.z-{pod}-pjrt</codeph>, TensorFlow 2.15.0 or later</entry></row>
+<row platform="v5p"><entry><keyword keyref="product-v5p"/></entry><entry><codeph><keyword keyref="v5p-runtime"/></codeph></entry><entry>Version pattern <codeph>tpu-vm-tf-x.y.z-{pod}-pjrt</codeph>, TensorFlow 2.15.0 or later</entry></row>
+<row platform="v6e"><entry><keyword keyref="product-v6e"/></entry><entry><codeph><keyword keyref="v6e-runtime"/></codeph></entry><entry>Version pattern <codeph>tpu-vm-tf-x.y.z-{pod}-pjrt</codeph>, TensorFlow 2.15.0 or later</entry></row>
+<row platform="tpu7x"><entry><keyword keyref="product-tpu7x"/></entry><entry>None listed</entry><entry>Not supported</entry></row>
+</tbody></tgroup></table>
+      <p>For TensorFlow, include <codeph>pod</codeph> in the version for multi-host slices and omit it for single-host
+        TPUs, for example <codeph>tpu-vm-tf-2.16.0-pod-pjrt</codeph>.</p>
+      <note platform="tpu7x" conref="../reuse/tpu-warehouse.dita#tpu-warehouse/note-tpu-api-tpu7x"/>
+    </section>
+  </refbody>
+</reference>

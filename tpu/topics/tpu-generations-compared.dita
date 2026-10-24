@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tpu-generations-compared" xml:lang="en-US">
+  <title>Compare <keyword keyref="product-v5p"/>, <keyword keyref="product-v6e"/> and <keyword keyref="product-tpu7x"/></title>
+  <shortdesc>Side-by-side specifications for the three most recent generations, as published on the
+    <keyword keyref="product-tpu7x"/> page.</shortdesc>
+  <prolog>
+    <author type="contributor">Siddharth Rao (adaptation)</author>
+    <copyright><copyryear year="2026"/><copyrholder>Google LLC (source content, CC BY 4.0)</copyrholder></copyright>
+    <critdates><created date="2026-10-24"/><revised modified="2026-10-22"/></critdates>
+    <metadata><audience type="ml-engineer"/></metadata>
+    <data name="source" value="tpu7x" href="https://docs.cloud.google.com/tpu/docs/tpu7x" format="html" scope="external"/>
+    <data name="licence" value="CC BY 4.0. Adapted from the source page and modified: restructured as DITA, values moved to keys."/>
+    <data name="known-issue" value="KI-1"/>
+  </prolog>
+  <refbody>
+    <section id="comparison">
+      <title>Specifications by generation</title>
+      <table id="compare-table" outputclass="spec"><tgroup cols="4"><colspec colname="c1"/><colspec colname="c2"/><colspec colname="c3"/><colspec colname="c4"/><thead><row><entry>Specification</entry><entry>v5p</entry><entry>v6e</entry><entry>TPU7x</entry></row></thead><tbody>
+<row><entry>Chips per pod</entry><entry><keyword keyref="v5p-chips-per-pod"/></entry><entry><keyword keyref="v6e-chips-per-pod"/></entry><entry><keyword keyref="tpu7x-chips-per-pod"/></entry></row>
+<row><entry>Peak compute per chip, BF16 (TFLOPs)</entry><entry><keyword keyref="v5p-peak-bf16"/></entry><entry><keyword keyref="v6e-peak-bf16"/></entry><entry><keyword keyref="tpu7x-peak-bf16"/></entry></row>
+<row><entry>Peak compute per chip, FP8 (TFLOPs)</entry><entry><keyword keyref="v5p-peak-fp8"/></entry><entry><keyword keyref="v6e-peak-fp8"/></entry><entry><keyword keyref="tpu7x-peak-fp8"/></entry></row>
+<row><entry>HBM capacity per chip (GiB)</entry><entry><keyword keyref="v5p-hbm-capacity"/></entry><entry><keyword keyref="v6e-hbm-capacity"/></entry><entry><keyword keyref="tpu7x-hbm-capacity"/></entry></row>
+<row><entry>HBM bandwidth per chip (GBps)</entry><entry><keyword keyref="v5p-hbm-bandwidth"/></entry><entry><keyword keyref="v6e-hbm-bandwidth"/></entry><entry><keyword keyref="tpu7x-hbm-bandwidth"/></entry></row>
+<row><entry>vCPUs (4-chip VM)</entry><entry><keyword keyref="v5p-vcpus-4chip"/></entry><entry><keyword keyref="v6e-vcpus-4chip"/></entry><entry><keyword keyref="tpu7x-vcpus-4chip"/></entry></row>
+<row><entry>RAM (GB) (4-chip VM)</entry><entry><keyword keyref="v5p-ram-4chip"/></entry><entry><keyword keyref="v6e-ram-4chip"/></entry><entry><keyword keyref="tpu7x-ram-4chip"/></entry></row>
+<row><entry>TensorCores per chip</entry><entry><keyword keyref="v5p-tensorcores"/></entry><entry><keyword keyref="v6e-tensorcores"/></entry><entry><keyword keyref="tpu7x-tensorcores"/></entry></row>
+<row><entry>SparseCores per chip</entry><entry><keyword keyref="v5p-sparsecores"/></entry><entry><keyword keyref="v6e-sparsecores"/></entry><entry><keyword keyref="tpu7x-sparsecores"/></entry></row>
+<row><entry>Bidirectional ICI bandwidth per chip (GBps)</entry><entry><keyword keyref="v5p-ici-bandwidth"/></entry><entry><keyword keyref="v6e-ici-bandwidth"/></entry><entry><keyword keyref="tpu7x-ici-bandwidth"/></entry></row>
+<row><entry>DCN bandwidth per chip (Gbps)</entry><entry><keyword keyref="v5p-dcn-per-chip"/></entry><entry><keyword keyref="v6e-dcn-per-chip"/></entry><entry><keyword keyref="tpu7x-dcn-per-chip"/></entry></row>
+</tbody></tgroup></table>
+    </section>
+  </refbody>
+</reference>
