@@ -16,9 +16,9 @@
       for 400G optics, with eight electrical lanes, and designed it to carry 800G modules as lane speeds rose.</p>
     <fig id="fig-osfp-turntable">
       <title>OSFP-style transceiver, turntable view</title>
-      <image href="../../media/renders/osfp-turntable.gif" placement="break" deliveryTarget="html5 webhelp">
+      <image href="../media/osfp-turntable.gif" placement="break" deliveryTarget="html5 webhelp">
         <alt>Animated 3D model of a pluggable optical transceiver turning on its axis</alt></image>
-      <image href="../../media/renders/osfp-hero.png" placement="break" deliveryTarget="pdf">
+      <image href="../media/osfp-hero.png" placement="break" deliveryTarget="pdf">
         <alt>3D model of a pluggable optical transceiver</alt></image>
     </fig>
     <note type="note">The model is an original, generic design for illustration. It is not a Google part or any vendor's
@@ -35,7 +35,7 @@
     <section id="video">
       <title>Video</title>
       <p>The same model as a short video, for players that support MP4:</p>
-      <object data="../../media/renders/osfp-turntable.mp4" type="video/mp4" width="640" height="360" outputclass="video">
+      <object data="../media/osfp-turntable.mp4" type="video/mp4" width="640" height="360" outputclass="video">
         <desc>Twelve-second turntable video of the 3D transceiver model.</desc>
         <param name="controls" value="true"/>
         <param name="loop" value="true"/>

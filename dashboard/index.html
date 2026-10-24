@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corpus Health Dashboard</title>
+<meta name="description" content="Content health and OKRs for the dita-corpus sample sets: single sourcing, validation, evidence coverage, API coverage and freshness.">
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --ring: rgba(11,11,11,0.10);
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+  --good: #0ca30c; --good-text: #006300; --warning: #fab219; --critical: #d03b3b;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --good-text: #0ca30c;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --good-text: #0ca30c;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1120px; margin: 0 auto; padding: 28px 16px 64px; }
+header { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; margin-bottom: 20px; }
+h1 { font-size: 26px; line-height: 1.2; margin: 0; letter-spacing: -0.01em; }
+h2 { font-size: 17px; margin: 0 0 4px; }
+.sub { color: var(--ink-2); margin: 4px 0 0; max-width: 70ch; }
+.meta { color: var(--muted); font-size: 13px; }
+.meta code { font-family: var(--mono); }
+nav.outputs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+nav.outputs a { font-size: 13px; color: var(--ink); text-decoration: none; padding: 5px 10px; border-radius: 999px; background: var(--surface); box-shadow: 0 0 0 1px var(--ring); }
+nav.outputs a:hover { box-shadow: 0 0 0 1px var(--axis); }
+.card { background: var(--surface); border-radius: 12px; box-shadow: 0 0 0 1px var(--ring); padding: 18px 18px 16px; }
+.lede { color: var(--ink-2); font-size: 13.5px; margin: 0 0 14px; }
+.grid { display: grid; gap: 16px; }
+.kpis { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 16px; }
+.two { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); margin-top: 16px; }
+.tile .v { font-size: 30px; font-weight: 650; line-height: 1.1; margin-top: 6px; }
+.tile .l { color: var(--ink-2); font-size: 13px; }
+.tile .d { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+/* OKR scorecard */
+.okrs { display: grid; gap: 14px 28px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); }
+.obj h3 { font-size: 15px; margin: 0; }
+.obj .why { color: var(--ink-2); font-size: 13px; margin: 2px 0 10px; }
+.kr { display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; padding: 9px 0; border-top: 1px solid var(--grid); }
+.kr .t { font-size: 13.5px; }
+.kr .n { font-variant-numeric: tabular-nums; text-align: right; font-weight: 600; }
+.kr .tg { color: var(--muted); font-size: 12px; text-align: right; }
+.bar { grid-column: 1 / -1; height: 6px; background: var(--grid); border-radius: 3px; overflow: hidden; margin-top: 4px; }
+.bar span { display: block; height: 100%; border-radius: 3px; background: var(--s1); }
+.status { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; }
+.status svg { width: 14px; height: 14px; }
+.status.met { color: var(--good-text); }
+.status.miss { color: var(--critical); }
+.score { font-size: 13px; color: var(--ink-2); }
+/* charts */
+.chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+.chart text { fill: var(--ink-2); font-size: 12px; }
+.chart .val { fill: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+.chart .axis { stroke: var(--axis); }
+.chart .gridl { stroke: var(--grid); }
+.chart .m { stroke: var(--surface); stroke-width: 2; cursor: default; }
+.chart .m:hover, .chart .m:focus { opacity: 0.82; outline: none; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--ink-2); margin: 0 0 8px; padding: 0; list-style: none; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+details.tv { margin-top: 10px; font-size: 13px; }
+details.tv summary { cursor: pointer; color: var(--ink-2); }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--grid); vertical-align: top; }
+th { color: var(--ink-2); font-weight: 600; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.scroll { overflow-x: auto; }
+.pill { display: inline-block; font-size: 11.5px; padding: 1px 7px; border-radius: 999px; box-shadow: 0 0 0 1px var(--ring); color: var(--ink-2); white-space: nowrap; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 10px; }
+select, input[type=search] { font: inherit; font-size: 13px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--axis); background: var(--surface); color: var(--ink); }
+#tip { position: fixed; pointer-events: none; z-index: 10; background: var(--surface); color: var(--ink); box-shadow: 0 0 0 1px var(--ring), 0 6px 20px rgba(0,0,0,0.12); border-radius: 8px; padding: 7px 10px; font-size: 12.5px; display: none; max-width: 260px; }
+#tip b { display: block; font-size: 14px; }
+#tip span { color: var(--ink-2); }
+.gaps { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+footer { color: var(--muted); font-size: 12.5px; margin-top: 28px; }
+footer a { color: var(--ink-2); }
+.err { color: var(--critical); }
+@media (max-width: 520px) { h1 { font-size: 22px; } .tile .v { font-size: 26px; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>Corpus health</h1>
+      <p class="sub">One documentation source, four sets, checked on every push. Each number below is computed from the DITA and MyST source by <code>tools/extract.py</code> and scored against the corpus OKRs.</p>
+    </div>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <nav class="outputs" aria-label="Published outputs" id="outputs"></nav>
+
+  <section class="grid kpis" id="kpis" aria-label="Headline numbers"></section>
+
+  <section class="card" aria-labelledby="okr-h">
+    <h2 id="okr-h">Objectives and key results</h2>
+    <p class="lede" id="okr-score"></p>
+    <div class="okrs" id="okrs"></div>
+  </section>
+
+  <div class="grid two">
+    <section class="card chart" aria-labelledby="reuse-h">
+      <h2 id="reuse-h">Reuse across TPU generation builds</h2>
+      <p class="lede">Each generation is built from the same source with its own DITAVAL file. Shared topics are written once and appear in every build.</p>
+      <ul class="legend"><li><i style="background:var(--s1)"></i>Shared topics</li><li><i style="background:var(--s2)"></i>Generation-specific topics</li></ul>
+      <div id="reuse"></div>
+      <details class="tv"><summary>Table view</summary><div id="reuse-t"></div></details>
+    </section>
+
+    <section class="card chart" aria-labelledby="ev-h">
+      <h2 id="ev-h">Evidence coverage by pack</h2>
+      <p class="lede">Share of requirements that have at least one evidence topic in the relationship table, per model version.</p>
+      <ul class="legend"><li><i style="background:var(--s1)"></i>Gemma 4 (current)</li><li><i style="background:var(--s2)"></i>Gemma 3 (previous)</li></ul>
+      <div id="evidence"></div>
+      <p class="lede" style="margin:10px 0 0">Gaps for the current model:</p>
+      <ul class="gaps" id="gaps"></ul>
+      <details class="tv"><summary>Table view</summary><div id="evidence-t"></div></details>
+    </section>
+  </div>
+
+  <div class="grid two">
+    <section class="card chart" aria-labelledby="sets-h">
+      <h2 id="sets-h">Topics by set and type</h2>
+      <p class="lede" id="sets-lede"></p>
+      <ul class="legend" id="sets-legend"></ul>
+      <div id="sets"></div>
+      <details class="tv"><summary>Table view</summary><div id="sets-t"></div></details>
+    </section>
+
+    <section class="card" aria-labelledby="ki-h">
+      <h2 id="ki-h">Known issues kept in the source</h2>
+      <p class="lede">Real inconsistencies on the published pages, kept on purpose so each project has something true to catch.</p>
+      <div class="scroll" id="ki"></div>
+    </section>
+  </div>
+
+  <div class="grid two">
+    <section class="card" aria-labelledby="val-h">
+      <h2 id="val-h">Validation</h2>
+      <p class="lede" id="val-lede"></p>
+      <div class="scroll" id="val"></div>
+    </section>
+    <section class="card" aria-labelledby="src-h">
+      <h2 id="src-h">Source freshness</h2>
+      <p class="lede">Every fact traces to a public page. A source not re-checked in 90 days raises a warning.</p>
+      <div class="scroll" id="src"></div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:16px" aria-labelledby="top-h">
+    <h2 id="top-h">All topics</h2>
+    <div class="filters">
+      <label for="f-set" class="meta">Set</label>
+      <select id="f-set"><option value="">All sets</option></select>
+      <input id="f-q" type="search" placeholder="Filter by title or file" aria-label="Filter topics">
+      <span class="meta" id="f-count"></span>
+    </div>
+    <div class="scroll" id="topics"></div>
+  </section>
+
+  <footer>
+    Source: <a href="https://github.com/siddharthraop/dita-corpus">siddharthraop/dita-corpus</a>.
+    Content adapted from Google Cloud and Gemma documentation under CC BY 4.0, and modified. Targets are the ones set for this proof of concept.
+  </footer>
+</main>
+<div id="tip" role="status" aria-live="polite"></div>
+<script src="data/metrics.js"></script>
+<script>
+(function () {
+  const M = window.METRICS;
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, attrs = {}, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === "class") n.className = v; else if (k === "style") n.style.cssText = v; else n.setAttribute(k, v);
+    }
+    for (const k of kids) n.append(k instanceof Node ? k : document.createTextNode(String(k)));
+    return n;
+  };
+  const svgEl = (tag, attrs = {}) => {
+    const n = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+    return n;
+  };
+  const fmt = (n) => (typeof n === "number" ? n.toLocaleString("en-US") : n == null ? "n/a" : n);
+
+  if (!M) { $("kpis").append(el("p", { class: "err" }, "No metrics found. Run tools/validate.py then tools/extract.py.")); return; }
+
+  // ---- header and outputs
+  const when = new Date(M.generated_at);
+  $("meta").append("Updated ", when.toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" }));
+  if (M.commit) { $("meta").append(" · commit ", el("code", {}, M.commit)); }
+  [["TPU v5e", "tpu/v5e/"], ["TPU v5p", "tpu/v5p/"], ["TPU v6e", "tpu/v6e/"], ["TPU7x", "tpu/tpu7x/"],
+   ["Authority pack", "gemma/authority/"], ["Downstream pack", "gemma/downstream/"], ["Internal pack", "gemma/internal/"],
+   ["TPU API reference", "api/"], ["Cloud NAT (MyST)", "nat/"]].forEach(([t, h]) => $("outputs").append(el("a", { href: h }, t)));
+
+  // ---- KPI tiles
+  const ss = M.single_source, q = M.quality, api = M.api, ev = M.evidence.current;
+  const tiles = [
+    ["Topics", fmt(M.totals.topics), `${fmt(M.totals.words)} words · ${M.totals.generated_topics} generated from the API spec`],
+    ["Spec values from keys", ss.spec_cells_keyed_pct + "%", `${ss.spec_cells_keyed} of ${ss.spec_cells} table values`],
+    ["Reuse references", fmt(ss.keyref_uses + ss.conref_uses), `${fmt(ss.keyref_uses)} key refs · ${ss.conref_uses} conrefs · ${ss.keys_defined} keys`],
+    ["Validation", `${q.errors} / ${q.warnings}`, `errors / warnings across ${fmt(M.totals.files)} files${q.grammar_checked ? ", DTDs included" : ""}`],
+    ["API methods documented", `${api.methods_documented}/${api.methods_in_spec}`, `${api.schemas_documented} types · revision ${api.revision}`],
+    ["Annex XI evidence", ev.authority_pct + "%", `${ev.authority_covered} of ${ev.authority_total} requirements, Gemma 4`],
+  ];
+  tiles.forEach(([l, v, d]) => $("kpis").append(el("div", { class: "card tile" }, el("div", { class: "l" }, l), el("div", { class: "v" }, v), el("div", { class: "d" }, d))));
+
+  // ---- OKRs
+  const icon = (met) => {
+    const s = svgEl("svg", { viewBox: "0 0 16 16", "aria-hidden": "true" });
+    s.append(svgEl("circle", { cx: 8, cy: 8, r: 7, fill: "none", stroke: "currentColor", "stroke-width": 1.6 }));
+    s.append(svgEl("path", { d: met ? "M4.8 8.3l2.1 2.1 4.3-4.5" : "M5.5 5.5l5 5M10.5 5.5l-5 5", fill: "none", stroke: "currentColor", "stroke-width": 1.8, "stroke-linecap": "round", "stroke-linejoin": "round" }));
+    return s;
+  };
+  let met = 0, total = 0;
+  M.okrs.forEach((o) => {
+    const card = el("div", { class: "obj" }, el("h3", {}, `${o.id} · ${o.title}`), el("p", { class: "why" }, o.why));
+    o.key_results.forEach((kr) => {
+      total++; if (kr.met) met++;
+      const unit = kr.unit || "";
+      const st = el("span", { class: "status " + (kr.met ? "met" : "miss") }, icon(kr.met), kr.met ? "Met" : "Not met");
+      const row = el("div", { class: "kr" },
+        el("div", { class: "t" }, `${kr.id} ${kr.title}`), el("div", { class: "n" }, `${fmt(kr.value)}${unit}`),
+        st, el("div", { class: "tg" }, `target ${kr.direction === "min" ? "≥" : "≤"} ${kr.target}${unit}`));
+      if (unit === "%") {
+        const b = el("div", { class: "bar", role: "img", "aria-label": `${kr.value}% of 100%` });
+        b.append(el("span", { style: `width:${Math.max(0, Math.min(100, kr.value || 0))}%` }));
+        row.append(b);
+      }
+      card.append(row);
+    });
+    $("okrs").append(card);
+  });
+  const missed = M.okrs.flatMap((o) => o.key_results.filter((k) => k.met === false).map((k) => k.id));
+  $("okr-score").textContent = `${met} of ${total} key results met.` + (missed.length ? ` Not yet met: ${missed.join(", ")}. Each one is a real gap in the source, not a gap in the measurement.` : "");
+
+  // ---- tooltip
+  const tip = $("tip");
+  const show = (e, value, label) => {
+    tip.replaceChildren(el("b", {}, value), el("span", {}, label));
+    tip.style.display = "block";
+    const r = (e.target.getBoundingClientRect && e.clientX == null) ? e.target.getBoundingClientRect() : null;
+    const x = r ? r.right : e.clientX, y = r ? r.top : e.clientY;
+    tip.style.left = Math.min(window.innerWidth - 270, x + 12) + "px";
+    tip.style.top = Math.max(8, y - 44) + "px";
+  };
+  const hide = () => { tip.style.display = "none"; };
+  const hit = (node, value, label) => {
+    node.setAttribute("tabindex", "0");
+    node.setAttribute("aria-label", `${label}: ${value}`);
+    node.addEventListener("pointermove", (e) => show(e, value, label));
+    node.addEventListener("pointerleave", hide);
+    node.addEventListener("focus", (e) => show(e, value, label));
+    node.addEventListener("blur", hide);
+  };
+
+  // ---- horizontal stacked / grouped bars (one axis, rounded data ends, 2px surface gaps)
+  function hbar(target, rows, series, opts = {}) {
+    const W = 520, labelW = opts.labelW || 92, rowH = opts.grouped ? 16 * series.length + 14 : 26, gap = 12, padR = 44;
+    const H = rows.length * (rowH + gap) + 22;
+    const raw = opts.max || Math.max(...rows.map((r) => (opts.grouped ? Math.max(...series.map((s) => r[s.key])) : series.reduce((a, s) => a + r[s.key], 0))));
+    // Nice ticks: steps of 1, 2 or 5 times a power of ten, about four of them, domain rounded up to a step.
+    const p10 = Math.pow(10, Math.floor(Math.log10(raw / 4)));
+    const step = [1, 2, 5, 10].map((m) => m * p10).find((st) => raw / st <= 4.5);
+    const max = opts.max || Math.ceil(raw / step) * step;
+    const ticks = opts.ticks || Array.from({ length: Math.round(max / step) + 1 }, (_, i) => i * step);
+    const x = (v) => (v / max) * (W - labelW - padR);
+    const svg = svgEl("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": opts.aria || "" });
+    ticks.forEach((t) => {
+      const tx = labelW + x(t);
+      svg.append(svgEl("line", { x1: tx, x2: tx, y1: 0, y2: H - 18, class: t === 0 ? "axis" : "gridl" }));
+      const lab = svgEl("text", { x: tx, y: H - 4, "text-anchor": t === 0 ? "start" : "middle" }); lab.textContent = Math.round(t) + (opts.unit || ""); svg.append(lab);
+    });
+    rows.forEach((r, i) => {
+      const y0 = i * (rowH + gap) + 4;
+      const lab = svgEl("text", { x: 0, y: y0 + (opts.grouped ? rowH / 2 : 17) + 2 }); lab.textContent = r.label; svg.append(lab);
+      let acc = 0;
+      series.forEach((s, j) => {
+        const v = r[s.key];
+        const w = Math.max(0, x(v));
+        const bx = labelW + (opts.grouped ? 0 : x(acc));
+        const by = opts.grouped ? y0 + j * 16 : y0;
+        const bh = opts.grouped ? 12 : 22;
+        const last = opts.grouped || j === series.length - 1;
+        const rx = last && w > 4 ? 4 : 0;
+        // Rounded end on the data end only: draw a rounded rect, then square off the baseline side.
+        // Square on the baseline side, 4px round on the data end only.
+        const r2 = Math.min(rx, w / 2, bh / 2);
+        const d = `M${bx},${by}h${w - r2}a${r2},${r2} 0 0 1 ${r2},${r2}v${bh - 2 * r2}a${r2},${r2} 0 0 1 ${-r2},${r2}h${-(w - r2)}z`;
+        const rect = svgEl("path", { d, fill: s.color, class: "m" });
+        svg.append(rect);
+        hit(rect, `${v}${opts.unit || ""}`, `${r.label} · ${s.name}`);
+        if (opts.grouped || opts.labelEach) {
+          const t = svgEl("text", { x: bx + w + 6, y: by + bh - 2, class: "val" }); t.textContent = v + (opts.unit || ""); svg.append(t);
+        }
+        acc += v;
+      });
+      if (!opts.grouped && opts.total) {
+        const t = svgEl("text", { x: labelW + x(acc) + 6, y: y0 + 16, class: "val" }); t.textContent = acc; svg.append(t);
+      }
+    });
+    target.append(svg);
+  }
+  function tableView(target, head, rows) {
+    const t = el("table");
+    const tr = el("tr"); head.forEach((h, i) => tr.append(el("th", i ? { class: "num" } : {}, h))); t.append(el("thead", {}, tr));
+    const tb = el("tbody");
+    rows.forEach((r) => { const row = el("tr"); r.forEach((c, i) => row.append(el("td", i ? { class: "num" } : {}, c))); tb.append(row); });
+    t.append(tb); target.append(t);
+  }
+
+  // reuse chart
+  const tb = M.tpu_builds, gens = Object.keys(tb.generations);
+  const names = { v5e: "v5e", v5p: "v5p", v6e: "v6e", tpu7x: "TPU7x" };
+  const order = ["v5e", "v5p", "v6e", "tpu7x"].filter((g) => gens.includes(g));
+  const reuseRows = order.map((g) => ({ label: names[g], shared: tb.shared_topics, specific: tb.generations[g].specific }));
+  hbar($("reuse"), reuseRows, [{ key: "shared", name: "Shared", color: "var(--s1)" }, { key: "specific", name: "Specific", color: "var(--s2)" }], { total: true, labelW: 56, aria: "Topics per generation build, shared and specific" });
+  $("reuse").append(el("p", { class: "lede", style: "margin:8px 0 0" }, `${tb.reuse_pct}% of the topics across the four builds come from shared source.`));
+  tableView($("reuse-t"), ["Generation", "Shared", "Specific", "Total"], reuseRows.map((r) => [r.label, r.shared, r.specific, r.shared + r.specific]));
+
+  // evidence chart
+  const prev = M.evidence.previous;
+  const packs = [["authority", "Annex XI"], ["downstream", "Annex XII"], ["internal", "NIST AI RMF"]];
+  const evRows = packs.map(([k, l]) => ({ label: l, cur: ev[k + "_pct"], prev: prev[k + "_pct"] }));
+  hbar($("evidence"), evRows, [{ key: "cur", name: "Gemma 4", color: "var(--s1)" }, { key: "prev", name: "Gemma 3", color: "var(--s2)" }], { grouped: true, max: 100, ticks: [0, 50, 100], unit: "%", labelW: 92, aria: "Evidence coverage by pack and model" });
+  ev.gaps.forEach((g) => $("gaps").append(el("li", { class: "pill" }, g)));
+  tableView($("evidence-t"), ["Pack", "Gemma 4", "Gemma 3"], evRows.map((r) => [r.label, r.cur + "%", r.prev + "%"]));
+
+  // sets chart
+  const TYPES = [["concept", "Concept", "var(--s1)"], ["reference", "Reference", "var(--s2)"], ["task", "Task", "var(--s3)"], ["topic", "Topic", "var(--s4)"]];
+  const setNames = { tpu: "Cloud TPU", gemma: "Gemma evidence", api: "TPU API" };
+  const setRows = Object.entries(M.by_set).map(([s, d]) => Object.assign({ label: setNames[s] || s }, Object.fromEntries(TYPES.map(([t]) => [t, d.types[t] || 0]))));
+  TYPES.forEach(([, n, c]) => $("sets-legend").append(el("li", {}, el("i", { style: `background:${c}` }), n)));
+  hbar($("sets"), setRows, TYPES.map(([k, n, c]) => ({ key: k, name: n, color: c })), { total: true, labelW: 108, aria: "Topics by set and information type" });
+  $("sets-lede").textContent = `${fmt(M.totals.topics)} topics. The API set is generated; the others are written. The Cloud NAT pages are MyST Markdown and not counted here.`;
+  tableView($("sets-t"), ["Set", ...TYPES.map((t) => t[1]), "Words"], Object.entries(M.by_set).map(([s, d]) => [setNames[s] || s, ...TYPES.map(([t]) => d.types[t] || 0), fmt(d.words)]));
+
+  // known issues
+  const kt = el("table"); kt.append(el("thead", {}, el("tr", {}, el("th", {}, "ID"), el("th", {}, "Issue"), el("th", {}, "Where"))));
+  const kb = el("tbody");
+  M.known_issues.forEach((k) => kb.append(el("tr", {}, el("td", {}, el("span", { class: "pill" }, k.id)), el("td", {}, el("div", {}, k.summary), el("div", { class: "meta" }, k.detail)), el("td", { class: "meta" }, (k.where || []).map((w) => w.split("/").pop()).join(", ") || "n/a"))));
+  kt.append(kb); $("ki").append(kt);
+
+  // validation
+  $("val-lede").textContent = `${q.errors} errors and ${q.warnings} warnings. Rules: DITA 1.3 DTDs, lxml integrity checks, Schematron house rules and source freshness.`;
+  if (q.items.length) {
+    const vt = el("table"); vt.append(el("thead", {}, el("tr", {}, el("th", {}, "Rule"), el("th", {}, "File"), el("th", {}, "Message"))));
+    const vb = el("tbody");
+    q.items.forEach((i) => vb.append(el("tr", {}, el("td", {}, el("span", { class: "pill" }, `${i.severity} ${i.rule}`)), el("td", { class: "meta" }, (i.file || "").split("/").pop()), el("td", {}, i.message))));
+    vt.append(vb); $("val").append(vt);
+  } else {
+    $("val").append(el("p", { class: "status met" }, icon(true), "Clean: no errors or warnings."));
+  }
+
+  // sources
+  const st = el("table"); st.append(el("thead", {}, el("tr", {}, el("th", {}, "Source"), el("th", { class: "num" }, "Page updated"), el("th", { class: "num" }, "Checked"), el("th", { class: "num" }, "Age (days)"))));
+  const sb = el("tbody");
+  M.freshness.sources.forEach((s) => {
+    const a = el("a", { href: s.url, rel: "noopener" }); a.textContent = s.title;
+    sb.append(el("tr", {}, el("td", {}, a), el("td", { class: "num" }, s.page_updated || "n/a"), el("td", { class: "num" }, s.checked), el("td", { class: "num" }, s.age_days)));
+  });
+  st.append(sb); $("src").append(st);
+
+  // topics table with filters
+  Object.keys(M.by_set).forEach((s) => $("f-set").append(el("option", { value: s }, setNames[s] || s)));
+  function renderTopics() {
+    const s = $("f-set").value, qy = $("f-q").value.trim().toLowerCase();
+    const rows = M.topics.filter((t) => (!s || t.set === s) && (!qy || (t.title + " " + t.file).toLowerCase().includes(qy)));
+    $("f-count").textContent = rows.length > 60 ? `${rows.length} topics, first 60 shown; filter to narrow` : `${rows.length} topics`;
+    const t = el("table");
+    t.append(el("thead", {}, el("tr", {}, ...["Title", "Type", "Set", "Words", "Key refs", "Conrefs", "Platforms", "Revised"].map((h, i) => el("th", i >= 3 && i <= 5 ? { class: "num" } : {}, h)))));
+    const b = el("tbody");
+    rows.slice(0, 60).forEach((r) => b.append(el("tr", {},
+      el("td", {}, el("div", {}, r.title || "(untitled)"), el("div", { class: "meta" }, r.file)), el("td", {}, r.type), el("td", {}, setNames[r.set] || r.set),
+      el("td", { class: "num" }, r.words), el("td", { class: "num" }, r.keyrefs), el("td", { class: "num" }, r.conrefs),
+      el("td", {}, (r.platforms || []).join(", ")), el("td", { class: "num" }, r.revised || ""))));
+    t.append(b); $("topics").replaceChildren(t);
+  }
+  $("f-set").addEventListener("change", renderTopics);
+  $("f-q").addEventListener("input", renderTopics);
+  renderTopics();
+})();
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@ PLUGIN=src/main/plugins/org.oasis-open.dita.v1_3
 
 if [ -f "$DEST/catalog.xml" ]; then echo "$DEST/catalog.xml"; exit 0; fi
 TMP="$(mktemp -d)"
-git clone -q --depth 1 --branch "$DITA_OT_TAG" --filter=blob:none --sparse \
+git -c advice.detachedHead=false clone -q --depth 1 --branch "$DITA_OT_TAG" --filter=blob:none --sparse \
   https://github.com/dita-ot/dita-ot "$TMP/dita-ot"
 git -C "$TMP/dita-ot" sparse-checkout set "$PLUGIN" >/dev/null
 rm -rf "$DEST" && mkdir -p "$DEST"

@@ -266,6 +266,8 @@ def main() -> int:
     out = ROOT / "dashboard" / "data" / "metrics.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(metrics, indent=2, default=str), encoding="utf-8")
+    # The same data as a script, so dashboard/index.html also works opened straight from disk.
+    (out.parent / "metrics.js").write_text("window.METRICS = " + json.dumps(metrics, default=str) + ";\n", encoding="utf-8")
     met = sum(1 for o in metrics["okrs"] for kr in o["key_results"] if kr["met"])
     total = sum(len(o["key_results"]) for o in metrics["okrs"])
     print(f"{len(records)} topics, {metrics['totals']['words']} words. Key results met: {met}/{total}. Wrote {rel(out)}, build/topics.csv, build/topics.ndjson")
