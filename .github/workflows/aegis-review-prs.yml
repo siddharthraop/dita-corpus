@@ -1,0 +1,62 @@
+# Open review pull requests for the Gemma evidence set, so each topic's last change is a reviewed merge.
+#
+# AEGIS's check_approval counts a topic as approved only when its last change merged through a pull request that a
+# code owner approved and didn't author. The Gemma topics were committed directly, so this workflow opens one pull
+# request per group, authored by github-actions[bot]. Each adds a review record to every topic's prolog. A code owner
+# reviews the topics against their sources, approves and merges.
+#
+# Needs: Settings > Actions > General > Workflow permissions > "Allow GitHub Actions to create and approve pull requests".
+name: aegis-review-prs
+on:
+  workflow_dispatch:
+    inputs:
+      record:
+        description: "Review record written to each topic's prolog"
+        default: "AEGIS v0.1 evidence review"
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  open:
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1
+      matrix:
+        include:
+          - {group: requirements, glob: "gemma/requirements/*.dita", title: "Review: Gemma requirement topics (Annex XI, Annex XII, NIST AI RMF)"}
+          - {group: gemma4, glob: "gemma/evidence/gemma4-*.dita", title: "Review: Gemma 4 evidence topics"}
+          - {group: gemma3, glob: "gemma/evidence/gemma3-*.dita", title: "Review: Gemma 3 evidence topics"}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Add the review record and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RECORD: ${{ inputs.record }}
+          GLOB: ${{ matrix.glob }}
+          BRANCH: review/aegis-${{ matrix.group }}
+          TITLE: ${{ matrix.title }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$BRANCH"
+          today=$(date -u +%F)
+          n=0
+          for f in $GLOB; do
+            if grep -q 'data name="review-record"' "$f"; then
+              sed -i -E "s|<data name=\"review-record\" value=\"[^\"]*\"/>|<data name=\"review-record\" value=\"$RECORD, $today\"/>|" "$f"
+            else
+              # Insert after the licence data element, the last element of every Gemma prolog.
+              sed -i -E "0,/(<data name=\"licence\"[^>]*\/>)/s||\1\n    <data name=\"review-record\" value=\"$RECORD, $today\"/>|" "$f"
+            fi
+            n=$((n+1))
+          done
+          git add gemma
+          git commit -q -m "$TITLE" -m "Adds a review record to $n topics. Approve after checking each topic against the source page in its prolog."
+          git push -q --force origin "$BRANCH"
+          body=$(printf 'Adds a review record to %s topics in `%s`.\n\nReview each topic against the source page named in its prolog (`data name="source"`), then approve and merge. AEGIS reads the approval from this pull request: the author is github-actions[bot], so the approver must be a different person who is a code owner.\n' "$n" "$GLOB")
+          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
+            echo "::notice title=$BRANCH::pull request already open; branch updated"
+          else
+            gh pr create --base main --head "$BRANCH" --title "$TITLE" --body "$body"
+          fi

@@ -1,0 +1,4 @@
+# Code owners: a pull request that changes these paths needs an approving review from an owner.
+# AEGIS reads this file to decide whether an approval counts as evidence (check_approval).
+*                 @siddharthraop
+/gemma/           @siddharthraop
