@@ -20,6 +20,7 @@ jobs:
   open:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       max-parallel: 1
       matrix:
         include:
@@ -58,5 +59,7 @@ jobs:
           if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
             echo "::notice title=$BRANCH::pull request already open; branch updated"
           else
-            gh pr create --base main --head "$BRANCH" --title "$TITLE" --body "$body"
+            gh pr create --base main --head "$BRANCH" --title "$TITLE" --body "$body" || {
+              echo "::error title=Can't open the pull request::Turn on Settings > Actions > General > Workflow permissions > Allow GitHub Actions to create and approve pull requests, then run this workflow again. Branch $BRANCH is pushed."
+              exit 1; }
           fi
