@@ -11,6 +11,7 @@
     <data name="framework" value="nist-ai-rmf"/>
     <data name="source" value="nist-ai-rmf" href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf" format="html" scope="external"/>
     <data name="licence" value="Plain-language paraphrase of the legal or framework text. Not legal advice."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <refbody>
     <properties id="requirement">
