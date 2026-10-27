@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="training-data"/>
     <data name="source" value="gemma4-card" href="https://ai.google.dev/gemma/docs/core/model_card_4" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p>The training data is a large, diverse collection of web documents, code, mathematics and images, with audio for some variants. The card does not give its size in tokens. Knowledge cutoff: <keyword keyref="gemma-4-cutoff"/>.</p></conbody>
 </concept>

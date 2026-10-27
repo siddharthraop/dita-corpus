@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="intended-use"/>
     <data name="source" value="gemma4-card" href="https://ai.google.dev/gemma/docs/core/model_card_4" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p>Intended uses include content creation, chatbots and conversational AI, text summarization, image data extraction, audio processing (E2B, E4B and 12B), research and education, language-learning tools and knowledge exploration.</p></conbody>
 </concept>

@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="inputs-outputs"/>
     <data name="source" value="gemma-overview" href="https://ai.google.dev/gemma/docs/core" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p>All variants take text and images, at variable resolution and aspect ratio. Video and audio input are built in for E2B, E4B and 12B. The models produce text.</p></conbody>
 </concept>

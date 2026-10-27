@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="licence"/>
     <data name="source" value="gemma4-card" href="https://ai.google.dev/gemma/docs/core/model_card_4" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p>The model card states the licence as <keyword keyref="gemma-4-licence"/>. The Gemma overview page also links to the Gemma terms, so two licence statements exist for the same model.</p></conbody>
 </concept>

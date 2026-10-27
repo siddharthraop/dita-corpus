@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="ethics-risks"/>
     <data name="source" value="gemma4-card" href="https://ai.google.dev/gemma/docs/core/model_card_4" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p>The card names bias and fairness, misinformation and misuse, and transparency and accountability. Identified risks include harmful content, malicious use, privacy violations and the perpetuation of biases.</p></conbody>
 </concept>
