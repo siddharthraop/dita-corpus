@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="overview"/>
     <data name="source" value="gemma3-card" href="https://ai.google.dev/gemma/docs/core/model_card_3" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p><keyword keyref="gemma-3-name"/> is a family of multimodal open models in 1B, 4B, 12B and 27B sizes. The card names the sizes but does not give exact parameter counts or design rationale.</p><p>Context windows are <keyword keyref="gemma-3-context-large"/> tokens for the 4B, 12B and 27B models and <keyword keyref="gemma-3-context-1b"/> for the 1B model.</p></conbody>
 </concept>

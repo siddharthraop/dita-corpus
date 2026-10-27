@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="safety"/>
     <data name="source" value="gemma3-card" href="https://ai.google.dev/gemma/docs/core/model_card_3" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p>Evaluations covered child safety, content safety and representational harms, and ran without safety filters. The card reports large gains over earlier Gemma models. Evaluation prompts were in English only.</p></conbody>
 </concept>
