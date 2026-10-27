@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="implementation"/>
     <data name="source" value="gemma3-card" href="https://ai.google.dev/gemma/docs/core/model_card_3" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p>The models were trained on <keyword keyref="gemma-3-hardware"/> using JAX and ML Pathways. The card says TPU efficiency reflects Google's commitment to operating sustainably, but gives no compute or energy figures.</p></conbody>
 </concept>

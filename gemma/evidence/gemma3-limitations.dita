@@ -12,6 +12,7 @@
     <data name="evidence-subject" value="limitations"/>
     <data name="source" value="gemma3-card" href="https://ai.google.dev/gemma/docs/core/model_card_3" format="html" scope="external"/>
     <data name="licence" value="CC BY 4.0. Adapted from the model card and modified."/>
+    <data name="review-record" value="AEGIS v0.1 evidence review, 2026-10-27"/>
   </prolog>
   <conbody><p>Output quality depends on the quality, diversity and scope of the training data. The models do best on clear, well-specified tasks, can struggle with ambiguity, sarcasm and figurative language, are not guaranteed to be factually accurate and can lack common-sense reasoning.</p></conbody>
 </concept>
